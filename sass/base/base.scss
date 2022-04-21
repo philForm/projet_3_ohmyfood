@@ -1,0 +1,25 @@
+// Polices utilisées
+// Shrikhand
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+// Roboto
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+html {
+    // 10px div by def of 16px
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    // background: $colour-secondary;
+}
