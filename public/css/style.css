@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+.card-resto, .operation__card, .explode__content button {
+  filter: drop-shadow(0px 0px 6px rgba(158, 158, 158, 0.8));
+}
+
+.card-resto .heart i:last-child, .operation__card {
+  transition: all 500ms ease-in-out;
+}
+
 *,
 *::after,
 *::before {
@@ -39,15 +47,15 @@ main {
 
 .explode {
   width: 100%;
-  background-color: aquamarine;
+  background-color: #f6f6f6;
 }
 .explode__title {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  background: rgb(155, 155, 155);
-  background: linear-gradient(180deg, rgb(155, 155, 155) 0%, rgb(230, 230, 230) 15%, rgb(230, 230, 230) 100%);
+  background: rgb(213, 213, 213);
+  background: linear-gradient(180deg, rgb(213, 213, 213) 0%, rgb(234, 234, 234) 15%, rgb(234, 234, 234) 100%);
 }
 .explode__title span {
   font-size: small;
@@ -73,7 +81,8 @@ main {
 .explode__content button {
   width: 240px;
   height: 76px;
-  background-color: #FF79DA;
+  color: white;
+  background-image: linear-gradient(180deg, #FF79DA, #9356DC);
   border-radius: 50px;
   border: none;
 }
@@ -103,7 +112,7 @@ main {
   padding: 26px 5% 0 14%;
   width: 100%;
   min-height: 62px;
-  background-color: aqua;
+  background-color: #f6f6f6;
   border-radius: 20px;
 }
 .operation__card div:first-child {
@@ -115,15 +124,18 @@ main {
   left: -15px;
   bottom: 24%;
 }
+.operation__card div:last-child {
+  margin-bottom: 5px;
+}
 .operation__card:hover {
-  background-color: #dfc8fa;
+  background-color: #f5edff;
 }
 .operation__card:hover i {
   color: #9356DC;
 }
 
-.section--orange {
-  background-color: orange;
+.section--color {
+  background-color: #f6f6f6;
 }
 
 .restaurants {
@@ -167,6 +179,7 @@ main {
   font-size: large;
 }
 .card-resto .heart i {
+  display: inline;
   position: relative;
 }
 .card-resto .heart i:first-child {
@@ -177,14 +190,16 @@ main {
 }
 .card-resto .heart i:last-child {
   opacity: 0;
-  transition: all 500ms ease-in-out;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to top, #FF79DA, #9356DC);
 }
 .card-resto .heart:hover i:first-child {
   opacity: 0;
 }
 .card-resto .heart:hover i:last-child {
   opacity: 1;
-  color: crimson;
   cursor: pointer;
 }
 

@@ -1,6 +1,6 @@
 .section {
-    &--orange {
-        background-color:orange;
+    &--color {
+        background-color: $color-neutral-light;
     }
 
 }
@@ -13,6 +13,7 @@
 }
 
 .card-resto{
+    @extend %shadow;
     width: 100%;
     height: auto;
     background-color: white;
@@ -47,6 +48,8 @@
     // Animation des coeurs !
     .heart{
         i{
+            // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient
+            display: inline;
             position: relative;
             &:first-child{
                 left: 27px;
@@ -56,7 +59,12 @@
             }
             &:last-child{
                 opacity: 0;
-                transition: all 500ms ease-in-out;
+                -webkit-background-clip: text;
+                background-clip: text;
+                // -webkit-text-fill-color: transparent;
+                color: transparent;
+                background-image: linear-gradient(to top, $color-secondary, $color-primary);
+                @extend %transition;
             }
             
         }
@@ -67,7 +75,6 @@
                 }
                 &:last-child{
                 opacity: 1;
-                color: crimson;
                 cursor: pointer;
                 }
                 

@@ -20,12 +20,14 @@
     &__card{
         position: relative;
         @include flex-center(start, baseline);
+        @extend %shadow;
+        @extend %transition;
         gap: 10%;
         font-size: 1.5rem;
         padding: 26px 5% 0 14%;
         width: 100%;
         min-height: 62px;
-        background-color: aqua;
+        background-color: $color-neutral-light;
         border-radius: 20px;
         div:first-child{
             position: absolute;
@@ -36,8 +38,11 @@
             left: -15px;
             bottom: 24%;
         }
+        div:last-child{
+            margin-bottom: 5px;
+        }
         &:hover{
-            background-color: #dfc8fa;
+            background-color: $color-card-hover;
         }
         &:hover i{
             color: $color-primary;
