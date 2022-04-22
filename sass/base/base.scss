@@ -16,8 +16,11 @@
 
 html {
     // 10px div by def of 16px
-    box-sizing: border-box;
     font-size: 62.5%;
+    box-sizing: border-box;
+    /* Set "my-sec-counter" to 0 */
+    counter-reset: my-sec-counter;
+    
 }
 
 body, span {
