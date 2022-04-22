@@ -11,11 +11,16 @@
 }
 
 html {
+  box-sizing: border-box;
   font-size: 62.5%;
 }
 
-body {
-  box-sizing: border-box;
+body, span {
+  font-family: "Roboto", sans-serif;
+}
+
+.section-title {
+  font-size: x-large;
 }
 
 .header {
@@ -24,6 +29,12 @@ body {
 }
 .header h1 {
   font-family: "Shrikhand";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .explode {
@@ -37,11 +48,10 @@ body {
   height: 50px;
   background: rgb(155, 155, 155);
   background: linear-gradient(180deg, rgb(155, 155, 155) 0%, rgb(230, 230, 230) 15%, rgb(230, 230, 230) 100%);
-  text-align: center;
-  vertical-align: center;
 }
 .explode__title span {
-  font-family: "Roboto", sans-serif;
+  font-size: small;
+  font-weight: 400;
 }
 .explode__content {
   display: flex;
@@ -54,7 +64,6 @@ body {
   min-height: 350px;
 }
 .explode__content h3 {
-  font-size: 30px;
   padding: 0 14%;
 }
 .explode__content p {
@@ -67,6 +76,122 @@ body {
   background-color: #FF79DA;
   border-radius: 50px;
   border: none;
+}
+
+.section {
+  width: 100%;
+  height: auto;
+  padding: 20px 10%;
+}
+.section__title--marg-btm {
+  margin-bottom: 10px;
+}
+
+.operation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.operation__card {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  gap: 10%;
+  font-size: 1.5rem;
+  padding: 26px 5% 0 14%;
+  width: 100%;
+  min-height: 62px;
+  background-color: aqua;
+  border-radius: 20px;
+}
+.operation__card div:first-child {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #9356DC;
+  border-radius: 50%;
+  left: -15px;
+  bottom: 24%;
+}
+.operation__card:hover {
+  background-color: #dfc8fa;
+}
+.operation__card:hover i {
+  color: #9356DC;
+}
+
+.section--orange {
+  background-color: orange;
+}
+
+.restaurants {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-resto {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 20px;
+}
+.card-resto__image {
+  width: inherit;
+  height: 150px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+.card-resto__image img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.card-resto__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+}
+.card-resto__text h3 {
+  font-size: medium;
+}
+.card-resto__text h4 {
+  font-size: larger;
+}
+.card-resto__text .heart {
+  font-size: large;
+}
+.card-resto .heart i {
+  position: relative;
+}
+.card-resto .heart i:first-child {
+  left: 27px;
+  color: black;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.card-resto .heart i:last-child {
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+.card-resto .heart:hover i:first-child {
+  opacity: 0;
+}
+.card-resto .heart:hover i:last-child {
+  opacity: 1;
+  color: crimson;
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 60px;
+  background-color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

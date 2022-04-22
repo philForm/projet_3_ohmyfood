@@ -1,4 +1,11 @@
-// @import "./utils/variables.scss";
-@use "./base/base.scss";
-@use "./layout/header.scss";
-@use "./layout/section_explode.scss"
+@import "./utils/variables";
+@import "./utils/mixins";
+
+@import "./base/base";
+
+@import "./layout/header";
+@import "./layout/main";
+@import "./layout/explode";
+@import "./layout/section_one";
+@import "./layout/section-two";
+@import "./layout/footer"

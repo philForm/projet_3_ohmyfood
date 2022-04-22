@@ -1,0 +1,46 @@
+.section{
+    width: 100%;
+    height: auto;
+    padding: 20px 10%;
+    // &--bisque{
+    //     background-color: bisque;
+    // }
+    &__title{
+        &--marg-btm{
+            margin-bottom: 10px;
+        }
+    }
+}
+.operation{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    &__card{
+        position: relative;
+        @include flex-center(start, baseline);
+        gap: 10%;
+        font-size: 1.5rem;
+        padding: 26px 5% 0 14%;
+        width: 100%;
+        min-height: 62px;
+        background-color: aqua;
+        border-radius: 20px;
+        div:first-child{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: $color-primary;
+            border-radius: 50%;
+            left: -15px;
+            bottom: 24%;
+        }
+        &:hover{
+            background-color: #dfc8fa;
+        }
+        &:hover i{
+            color: $color-primary;
+        }
+    }
+}

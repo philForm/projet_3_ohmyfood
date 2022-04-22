@@ -16,10 +16,15 @@
 
 html {
     // 10px div by def of 16px
+    box-sizing: border-box;
     font-size: 62.5%;
 }
 
-body {
-    box-sizing: border-box;
+body, span {
+    font-family: "Roboto", sans-serif;
     // background: $colour-secondary;
+}
+
+.section-title{
+    font-size: x-large;
 }
