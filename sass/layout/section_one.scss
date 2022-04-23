@@ -16,7 +16,7 @@
     &__card{
         position: relative;
         @include flex-center(start, baseline);
-        @extend %shadow;
+        box-shadow: $shadow-light;
         @extend %transition;
         gap: 10%;
         font-size: 1.5rem;
@@ -44,13 +44,16 @@
             margin-bottom: 5px;
         }
         &:hover{
+            @extend %transform;
+            box-shadow: $shadow-dark;
             background-color: $color-card-hover;
+            cursor: pointer;
         }
         &:hover i{
             color: $color-primary;
         }
     }
-    @media all and (min-width: 700px) {
+    @include tablet-min{
         &__card {
             max-width: 30%;
             @include flex-center(start);

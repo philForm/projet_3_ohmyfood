@@ -2,7 +2,9 @@
     &--color {
         background-color: $color-neutral-light;
     }
-
+    @include tablet-min{
+        border-radius: 20px 20px 0 0;
+    }
 }
 
 .restaurants{
@@ -13,11 +15,17 @@
 }
 
 .card-resto{
-    @extend %shadow;
+    box-shadow: $shadow-light;
+    @extend %transition;
     width: 100%;
     height: auto;
     background-color: white;
     border-radius: 20px;
+    &:hover{
+        @extend %transform;
+        box-shadow: $shadow-dark;
+        cursor: pointer;
+    }
     &__image{
         // display: flex;
         width: inherit;
@@ -45,10 +53,17 @@
         }
         
     }
+    @include tablet-min{
+        width: 48%;
+        &__image{
+            width: 100%;
+        }
+    }
+    
     // Animation des coeurs !
     .heart{
         i{
-            // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient
+            // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient !
             display: inline;
             position: relative;
             &:first-child{
@@ -59,6 +74,7 @@
             }
             &:last-child{
                 opacity: 0;
+                // webkit indispensable pour conserver la forme de l'icône
                 -webkit-background-clip: text;
                 background-clip: text;
                 // -webkit-text-fill-color: transparent;

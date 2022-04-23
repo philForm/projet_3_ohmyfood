@@ -4,3 +4,21 @@
     justify-content: $just-content ;
     align-items: $align;
 }
+
+// Responsive
+@mixin largest {
+    @media screen and (min-width: map-get($breakpoints, largest)) {
+        @content;
+    }
+}
+@mixin tablet-min {
+    @media screen and (min-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}

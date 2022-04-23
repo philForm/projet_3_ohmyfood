@@ -1,7 +1,15 @@
 
-%shadow{
-    filter: drop-shadow($shadow);
+%shadow-light{
+    filter: drop-shadow($shadow-light);
 }
+%shadow-dark{
+    filter: drop-shadow($shadow-dark);
+}
+
 %transition{
     transition: all 500ms ease-in-out;
+}
+
+%transform{
+    transform: scale(1.03);
 }

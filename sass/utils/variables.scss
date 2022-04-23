@@ -9,7 +9,11 @@ $color-neutral-light: #f6f6f6;
 $color-card-hover:#f5edff;
 
 // Ombrages
-$shadow: 0px 0px 6px rgba(158, 158, 158, 0.8);
+$shadow-light: 2px 3px 7px 3px #bcbcbc;
+$shadow-dark: 2px 3px 7px 3px #9f9f9f;
 
-// Gradients
-
+// Breakpoints Responsive
+$breakpoints:(
+    largest: 1440px,
+    mobile: 768px
+)
