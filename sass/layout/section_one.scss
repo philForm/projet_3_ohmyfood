@@ -1,7 +1,10 @@
 .section{
     width: 100%;
     height: auto;
-    padding: 20px 10%;
+    @extend %padding-sect-foot;
+    @include mobile{
+        @include padding-sect-foot-mobile; 
+    }
     &__title{
         &--marg-btm{
             margin-bottom: 10px;

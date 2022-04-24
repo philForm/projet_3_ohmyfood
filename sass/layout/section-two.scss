@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    // padding-bottom: 40px;
     gap: 20px;
 }
 
@@ -21,13 +22,15 @@
     height: auto;
     background-color: white;
     border-radius: 20px;
-    &:hover{
-        @extend %transform;
-        box-shadow: $shadow-dark;
-        cursor: pointer;
-    }
     &__image{
+        position: relative;
         // display: flex;
+        &--flag{
+            @include flag;
+            &::before{
+                @extend %transition;
+            }    
+        }
         width: inherit;
         height: 150px;
         border-radius: 20px 20px 0 0 ;
@@ -52,6 +55,15 @@
             font-size: large;
         }
         
+    }
+    &:hover {
+        @extend %transform;
+        box-shadow: $shadow-dark;
+        cursor: pointer;
+    
+        .card-resto__image--flag::before {
+            opacity: .9;
+        }
     }
     @include tablet-min{
         width: 48%;

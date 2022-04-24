@@ -22,3 +22,25 @@
         @content;
     }
 }
+
+// padding en mode mobile
+@mixin padding-sect-foot-mobile {
+    padding: 20px 10%;
+}
+
+@mixin flag{
+    &::before{
+        content: "nouveau";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 55px;
+        font-size: 2rem;
+        color: #24611f;
+        background-color: #4caf50;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+}

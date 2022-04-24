@@ -1,5 +1,40 @@
 .footer{
+    h3{
+        padding: 0 30px 20px 0;
+    }
+    font-size: 1.7rem;
+    font-weight: 500;
     width: 100%;
-    height: 60px;
+    height: auto;
     background-color: black;
+    color: white;
+    .bloc-page{
+        @extend %padding-sect-foot;
+        div{
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            ul{
+                display: flex;
+                gap: 20px; 
+            }
+            a{
+                display: flex;
+                color: inherit;
+            }
+            i{
+                margin-right: 10px;
+            }
+        }
+        @include mobile{
+            @include padding-sect-foot-mobile;
+            div{
+                &, ul{
+                    flex-direction: column;    
+                }
+            }
+        }
+        
+    }
+    
 }
