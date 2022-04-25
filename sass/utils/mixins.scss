@@ -38,9 +38,19 @@
         height: 55px;
         font-size: 2rem;
         color: #24611f;
-        background-color: #4caf50;
+        background-color: $color-tertiary;
         position: absolute;
         right: 20px;
         top: 20px;
+    }
+}
+
+@mixin underline{
+    &::after{
+        content: "";
+        width: 56px;
+        height: 3px;
+        background-color: $color-tertiary;
+        position: absolute;
     }
 }
