@@ -1,5 +1,6 @@
 .footer{
     h3{
+        @extend %shrikhand;
         padding: 0 30px 20px 0;
     }
     font-size: 1.7rem;

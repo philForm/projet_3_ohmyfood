@@ -29,8 +29,43 @@ main{
     }
 }
 .title--shrink{
-    font-family: "Shrikhand", cursive;
+    @extend %shrikhand;
 }
+
+
+
+/* Bloc caché qui va tronquer le texte */
+.bloc-1 {
+    width: 5rem;
+}
+
+// Bloc caché dont la taille augmente de 5rem au hover et qui va pousser le bloc-1
+.bloc-2 {
+    width: 0;
+    transition: all 1s;
+}
+
+// Bloc visible contenant le prix et l'icône check
+.hidden-square {
+    position: absolute;
+    // remplit toute la hauteur
+    min-height: -webkit-fill-available;
+    display: flex;
+    width: 10rem;
+    right: -5rem;
+    transition: all 1s;
+
+    .check {
+        @include flex-center;
+        margin: auto;
+        color: #690;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: white;
+    }
+}
+
 
 
 
@@ -38,11 +73,12 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    // @include underline;
+    margin-bottom: 40px;
     &__title{
         position: relative;
         font-size: 2rem;
         font-weight: 400;
+        @include underline;
     
     }
     &__dish{
@@ -53,61 +89,70 @@ main{
     }
     &__card {
         position: relative;
-        @include flex-center(start);
+        @include flex-center(space-between);
         box-shadow: $shadow-light;
-        @extend %transition;
-        gap: 10%;
-        font-size: 1.5rem;
-        padding: 0 0 0 14px;
+        background-color: white;
         width: 100%;
+        padding: 0 0 0 14px;
+        font-size: 1.5rem;
         min-height: 62px;
-        background-color: $color-neutral-light;
-        border-radius: 20px;
         overflow: hidden;
+        cursor: pointer;
+        border-radius: 15px;
+        @extend %transition;
+        
         &:hover {
             @extend %transform;
-            box-shadow: $shadow-dark;
-            background-color: $color-card-hover;
-            cursor: pointer;
-            .group__price{
-                transform: translateX(-62px);
-                i{
-                    transform: rotate(360deg);
-                    @extend %transition;
+            .bloc-2 {
+                width: 5rem;
+            }
+            .hidden-square {
+                right: 0;
+                i {
+                    transform: rotate(-360deg);
+                    transition: transform 1s;
                 }
             }
         }
     }
-    &__price {
+    &__text {
+        flex-grow: 1;
+        width: 10rem;
+        // =================
         display: flex;
-        position: absolute;
-        right: -62px;
-        height: 100%;
-        @extend %transition;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 0 0 14px;
+        // =================
+    
+        p,
         h4 {
-            position: absolute;
-            top: 31px;
-            left: -59px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
-        .hidden-square {
-            width: 62px;
-            height: auto;
-            background: $color-tertiary;
-            @include flex-center;
-            > div{
-                @include flex-center;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background-color: white;
-            }
-        }
+    }
+    
+    &__price {
+        @include flex-center;
+        width: 5rem;
+        transition: all 1s;
+    }
+    &__check{
+        @include flex-center;
+        width: 5rem;
+        background-color: #99e2d0;
     }
     @include tablet-min {
         &__card {
             max-width: 31%;
         }
     }
+}
+
+.validation{
+    display: flex;
+    justify-content: center;
 }
 
 
