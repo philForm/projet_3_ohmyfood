@@ -51,8 +51,9 @@
         h4{
             font-size: larger;
         }
-        .heart{
-            font-size: large;
+        .heart {
+            // Animation des coeurs !
+            @include anim-heart;
         }
         
     }
@@ -71,8 +72,5 @@
             width: 100%;
         }
     }
-    .heart{
-        // Animation des coeurs !
-        @include anim-heart;    
-    }
+    
 }

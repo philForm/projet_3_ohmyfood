@@ -1,3 +1,17 @@
+.header{
+    &--space_arr{
+        @include flex-center(space-around);
+        
+    }
+    i{
+        @extend %transition;
+    }
+    a:hover{
+        i{
+            transform: scale(1.1);
+        }
+    }
+}
 
 main{
     gap: 0;
@@ -33,7 +47,7 @@ main{
     }
     .heart{
         // Animation des coeurs !
-        @include anim-heart(xx-large, 46px);
+        @include anim-heart(xx-large);
     }
     
 }
@@ -91,6 +105,9 @@ main{
         font-size: 2rem;
         font-weight: 400;
         @include underline;
+        h3{
+            font-weight: 300;
+        }
     
     }
     &__dish{

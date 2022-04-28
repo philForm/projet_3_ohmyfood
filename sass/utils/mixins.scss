@@ -62,9 +62,20 @@
 }
 
 // Animation du coeur
-@mixin anim-heart($font_size:large, $left:27px){
+@mixin anim-heart($font_size:large){
+    // initialisation de la variable locale $left
+    $left: 0;
     position: relative;
     font-size: $font_size;
+    // =========================
+    // condition pour la valeur de la variable $left
+    @if($font_size == large){
+        $left:27px;
+    }
+    @if($font_size == xx-large){
+        $left:46px;
+    }
+    // =========================
     
     i {
         // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient !

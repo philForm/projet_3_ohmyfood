@@ -30,7 +30,7 @@ a {
   color: black;
 }
 
-.group__card, .bloc-cards .heart i:last-child, .card-resto .heart i:last-child, .card-resto__image--flag::before, .card-resto, .operation__card, .btn {
+.group__card, .bloc-cards .heart i:last-child, .header i, .card-resto__text .heart i:last-child, .card-resto__image--flag::before, .card-resto, .operation__card, .btn {
   transition: all 500ms ease-in-out;
 }
 
@@ -261,7 +261,33 @@ main {
   font-size: larger;
 }
 .card-resto__text .heart {
+  position: relative;
   font-size: large;
+}
+.card-resto__text .heart i {
+  display: inline;
+  position: relative;
+}
+.card-resto__text .heart i:first-child {
+  left: 27px;
+  color: black;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.card-resto__text .heart i:last-child {
+  opacity: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
+}
+.card-resto__text .heart:hover i:first-child {
+  opacity: 0;
+}
+.card-resto__text .heart:hover i:last-child {
+  opacity: 1;
+  cursor: pointer;
 }
 .card-resto:hover {
   box-shadow: 2px 3px 7px 3px #9f9f9f;
@@ -277,35 +303,6 @@ main {
   .card-resto__image {
     width: 100%;
   }
-}
-.card-resto .heart {
-  position: relative;
-  font-size: large;
-}
-.card-resto .heart i {
-  display: inline;
-  position: relative;
-}
-.card-resto .heart i:first-child {
-  left: 27px;
-  color: black;
-  opacity: 1;
-  transition: opacity 500ms ease-in-out;
-}
-.card-resto .heart i:last-child {
-  opacity: 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
-}
-.card-resto .heart:hover i:first-child {
-  opacity: 0;
-}
-.card-resto .heart:hover i:last-child {
-  opacity: 1;
-  cursor: pointer;
 }
 
 .footer {
@@ -342,6 +339,15 @@ main {
   .footer .bloc-page div, .footer .bloc-page div ul {
     flex-direction: column;
   }
+}
+
+.header--space_arr {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header a:hover i {
+  transform: scale(1.1);
 }
 
 main {
@@ -454,6 +460,9 @@ main {
   height: 3px;
   background-color: #99E2D0;
   position: absolute;
+}
+.group__title h3 {
+  font-weight: 300;
 }
 .group__dish {
   display: flex;
