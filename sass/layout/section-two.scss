@@ -71,44 +71,8 @@
             width: 100%;
         }
     }
-    
-    // Animation des coeurs !
     .heart{
-        i{
-            // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient !
-            display: inline;
-            position: relative;
-            &:first-child{
-                left: 27px;
-                color: black;
-                opacity: 1;
-                transition: opacity 500ms ease-in-out;
-            }
-            &:last-child{
-                opacity: 0;
-                // webkit indispensable pour conserver la forme de l'icône
-                -webkit-background-clip: text;
-                background-clip: text;
-                // -webkit-text-fill-color: transparent;
-                color: transparent;
-                background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
-                @extend %transition;
-            }
-            
-        }
-        &:hover {
-            i{
-                &:first-child{
-                    opacity: 0;
-                }
-                &:last-child{
-                opacity: 1;
-                cursor: pointer;
-                }
-                
-            }
-                
-        }
-        
+        // Animation des coeurs !
+        @include anim-heart;    
     }
 }

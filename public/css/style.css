@@ -30,7 +30,7 @@ a {
   color: black;
 }
 
-.group__card, .card-resto .heart i:last-child, .card-resto__image--flag::before, .card-resto, .operation__card, .btn {
+.group__card, .bloc-cards .heart i:last-child, .card-resto .heart i:last-child, .card-resto__image--flag::before, .card-resto, .operation__card, .btn {
   transition: all 500ms ease-in-out;
 }
 
@@ -59,16 +59,17 @@ a {
 }
 .btn:hover {
   box-shadow: 2px 3px 7px 3px #9f9f9f;
+  filter: hue-rotate(15deg);
   cursor: pointer;
 }
 
 body .bloc-page {
-  width: 93%;
+  width: 100%;
   margin: auto;
 }
 @media screen and (min-width: 1440px) {
   body .bloc-page {
-    width: 1302px;
+    width: 1440px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -277,6 +278,10 @@ main {
     width: 100%;
   }
 }
+.card-resto .heart {
+  position: relative;
+  font-size: large;
+}
 .card-resto .heart i {
   display: inline;
   position: relative;
@@ -291,6 +296,7 @@ main {
   opacity: 0;
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
   background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
 }
@@ -355,12 +361,50 @@ main {
 .bloc-cards {
   position: relative;
   top: -50px;
+  margin-bottom: -50px;
   border-radius: 40px 40px 0 0;
+  padding-bottom: 60px;
 }
 @media screen and (max-width: 768px) {
   .bloc-cards {
     padding: 20px 10%;
+    padding-bottom: 60px;
   }
+}
+.bloc-cards .heart {
+  position: relative;
+  font-size: xx-large;
+}
+.bloc-cards .heart i {
+  display: inline;
+  position: relative;
+}
+.bloc-cards .heart i:first-child {
+  left: 46px;
+  color: black;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.bloc-cards .heart i:last-child {
+  opacity: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
+}
+.bloc-cards .heart:hover i:first-child {
+  opacity: 0;
+}
+.bloc-cards .heart:hover i:last-child {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.title--shrink {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* Bloc caché qui va tronquer le texte */
@@ -459,9 +503,13 @@ main {
 .group__price {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  font-weight: 500;
   width: 5rem;
   transition: all 1s;
+}
+.group__price p {
+  padding-bottom: 12px;
 }
 .group__check {
   display: flex;

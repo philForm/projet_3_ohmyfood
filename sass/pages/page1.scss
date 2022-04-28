@@ -22,14 +22,26 @@ main{
 .bloc-cards{
     position: relative;
     top: -50px;
+    // Supprime la bordure qui s'est rajoutée en bas suite à la remontée du bloc !
+    margin-bottom: -50px;
     border-radius: 40px 40px 0 0;
+    padding-bottom: 60px;
     @extend %padding-sect-foot;
     @include mobile{
         @include padding-sect-foot-mobile;
+        padding-bottom: 60px;
     }
+    .heart{
+        // Animation des coeurs !
+        @include anim-heart(xx-large, 46px);
+    }
+    
 }
 .title--shrink{
     @extend %shrikhand;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 
@@ -134,9 +146,13 @@ main{
     }
     
     &__price {
-        @include flex-center;
+        @include flex-center(center, flex-end);
+        font-weight: 500;
         width: 5rem;
         transition: all 1s;
+        p{
+            padding-bottom: 12px
+        }
     }
     &__check{
         @include flex-center;

@@ -1,12 +1,13 @@
 
 body{
     .bloc-page {
-        width: 93%;
+        width: 100%;
         margin: auto;
     }
     @include largest{
         .bloc-page{
-            width: 1302px;
+            // width: 1302px;
+            width: 1440px;
         }
     }
     @include mobile{

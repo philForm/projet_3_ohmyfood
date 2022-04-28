@@ -13,6 +13,7 @@
     &:hover{
         @extend %transform;
         box-shadow: $shadow-dark;
+        filter: hue-rotate(15deg);
         cursor: pointer;
     }
 }
