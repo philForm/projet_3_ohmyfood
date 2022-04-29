@@ -2,9 +2,9 @@
     &--color {
         background-color: $color-neutral-light;
     }
-    @include tablet-min{
-        border-radius: 20px 20px 0 0;
-    }
+    // @include tablet-min{
+    //     border-radius: 20px 20px 0 0;
+    // }
 }
 
 .restaurants{
@@ -17,7 +17,7 @@
 
 .card-resto{
     box-shadow: $shadow-light;
-    @extend %transition;
+    @include transition;
     width: 100%;
     height: auto;
     background-color: white;
@@ -28,7 +28,7 @@
         &--flag{
             @include flag;
             &::before{
-                @extend %transition;
+                @include transition;
             }    
         }
         width: inherit;
@@ -36,9 +36,7 @@
         border-radius: 20px 20px 0 0 ;
         overflow: hidden;
         img{
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
+            @include image-center;
         }
     }
     &__text{
@@ -58,7 +56,7 @@
         
     }
     &:hover {
-        @extend %transform;
+        @include transf-scale;
         box-shadow: $shadow-dark;
         cursor: pointer;
     

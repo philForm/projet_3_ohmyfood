@@ -1,26 +1,25 @@
-.header{
-    &--space_arr{
+.header {
+    &--space_arr {
         @include flex-center(space-around);
-        
     }
-    i{
-        @extend %transition;
+    i {
+        @include transition;
     }
-    a:hover{
-        i{
-            transform: scale(1.1);
+    a:hover {
+        i {
+            @include transf-scale(1.1);
         }
     }
 }
 
-main{
+main {
     gap: 0;
 }
 
 // .section{
 //     &--bord_rad{
 //         border-radius: 40px 40px 0 0 ;
-    
+
 //     }
 // }
 
@@ -28,37 +27,33 @@ main{
     width: 100%;
     height: 300px;
     .img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
+        @include image-center;
     }
 }
-.bloc-cards{
+.bloc-cards {
+    $ascent: -50px;
     position: relative;
-    top: -50px;
+    top: $ascent;
     // Supprime la bordure qui s'est rajoutée en bas suite à la remontée du bloc !
-    margin-bottom: -50px;
+    margin-bottom: $ascent;
     border-radius: 40px 40px 0 0;
     padding-bottom: 60px;
     @extend %padding-sect-foot;
-    @include mobile{
+    @include mobile {
         @include padding-sect-foot-mobile;
         padding-bottom: 60px;
     }
-    .heart{
+    .heart {
         // Animation des coeurs !
         @include anim-heart(xx-large);
     }
-    
 }
-.title--shrink{
+.title--shrink {
     @extend %shrikhand;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-
 
 /* Bloc caché qui va tronquer le texte */
 .bloc-1 {
@@ -84,7 +79,7 @@ main{
     .check {
         @include flex-center;
         margin: auto;
-        color: #690;
+        color: $color-tertiary;
         width: 30px;
         height: 30px;
         border-radius: 50%;
@@ -92,29 +87,26 @@ main{
     }
 }
 
-
-
-
 .group {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 40px;
-    &__title{
+    &__title {
         position: relative;
         font-size: 2rem;
         font-weight: 400;
         @include underline;
-        h3{
+        h3 {
+            text-transform: uppercase;
             font-weight: 300;
         }
-    
     }
-    &__dish{
+    &__dish {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 20px;   
+        gap: 20px;
     }
     &__card {
         position: relative;
@@ -128,18 +120,17 @@ main{
         overflow: hidden;
         cursor: pointer;
         border-radius: 15px;
-        @extend %transition;
-        
+        @include transition;
+
         &:hover {
-            @extend %transform;
+            @include transf-scale;
             .bloc-2 {
                 width: 5rem;
             }
             .hidden-square {
                 right: 0;
                 i {
-                    transform: rotate(-360deg);
-                    transition: transform 1s;
+                    animation: check-rotate 1s ease-in-out;
                 }
             }
         }
@@ -153,7 +144,7 @@ main{
         justify-content: center;
         padding: 0 0 0 14px;
         // =================
-    
+
         p,
         h4 {
             overflow: hidden;
@@ -161,17 +152,17 @@ main{
             white-space: nowrap;
         }
     }
-    
+
     &__price {
         @include flex-center(center, flex-end);
         font-weight: 500;
         width: 5rem;
         transition: all 1s;
-        p{
-            padding-bottom: 12px
+        p {
+            padding-bottom: 12px;
         }
     }
-    &__check{
+    &__check {
         @include flex-center;
         width: 5rem;
         background-color: #99e2d0;
@@ -183,9 +174,7 @@ main{
     }
 }
 
-.validation{
+.validation {
     display: flex;
     justify-content: center;
 }
-
-

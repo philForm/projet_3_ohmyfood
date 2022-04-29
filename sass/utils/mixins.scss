@@ -1,16 +1,137 @@
 // Flex center
 @mixin flex-center($just-content: center, $align: center) {
     display: flex;
-    justify-content: $just-content ;
+    justify-content: $just-content;
     align-items: $align;
 }
 
-// Responsive
+// Garder le ratio des images et les centrer dans leur container.
+@mixin image-center{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+@mixin ellipse {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+
+// ======================================
+// ANIMATIONS
+// ======================================
+@mixin transf-scale($scale:1.03){
+    transform: scale($scale);
+}
+
+@mixin transition($elt: all, $duration: 500ms, $ease: ease-in-out){
+    transition: $elt $duration $ease;
+}
+
+// Animation du coeur
+@mixin anim-heart($font_size: large) {
+    // initialisation de la variable locale $left
+    $left: 0;
+    position: relative;
+    font-size: $font_size;
+
+    // =========================
+    // condition pour la valeur de la variable $left
+    @if ($font_size==large) {
+        $left: 27px;
+    }
+
+    @if ($font_size==xx-large) {
+        $left: 46px;
+    }
+    // =========================
+
+    i {
+        // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient !
+        display: inline;
+        position: relative;
+
+        &:first-child {
+            left: $left;
+            color: black;
+            opacity: 1;
+            transition: opacity 500ms ease-in-out;
+        }
+
+        &:last-child {
+            opacity: 0;
+            // webkit indispensable pour conserver la forme de l'icône
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
+            @include transition;
+        }
+    }
+
+    &:hover {
+        i {
+            &:first-child {
+                opacity: 0;
+            }
+
+            &:last-child {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// ======================================
+
+// ======================================
+// PSEUDO-ELEMENTS
+// ======================================
+// Flag "Nouveau" sur les cartes
+@mixin flag {
+    &::before {
+        content: "Nouveau";
+        @include flex-center;
+        width: 100px;
+        height: 55px;
+        font-size: 2rem;
+        color: #24611f;
+        background-color: $color-tertiary;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+}
+
+// Soulignement
+@mixin underline {
+    &::after {
+        content: "";
+        width: 42px;
+        height: 3px;
+        background-color: $color-tertiary;
+        position: absolute;
+    }
+}
+// ======================================
+// ====================================================
+// RESPONSIVE
+// ====================================================
 @mixin largest {
     @media screen and (min-width: map-get($breakpoints, largest)) {
         @content;
     }
 }
+
 @mixin tablet-min {
     @media screen and (min-width: map-get($breakpoints, mobile)) {
         @content;
@@ -28,88 +149,4 @@
     padding: 20px 10%;
 }
 
-@mixin flag{
-    &::before{
-        content: "nouveau";
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 55px;
-        font-size: 2rem;
-        color: #24611f;
-        background-color: $color-tertiary;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-}
-
-@mixin underline{
-    &::after{
-        content: "";
-        width: 42px;
-        height: 3px;
-        background-color: $color-tertiary;
-        position: absolute;
-    }
-}
-
-@mixin ellipse{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-// Animation du coeur
-@mixin anim-heart($font_size:large){
-    // initialisation de la variable locale $left
-    $left: 0;
-    position: relative;
-    font-size: $font_size;
-    // =========================
-    // condition pour la valeur de la variable $left
-    @if($font_size == large){
-        $left:27px;
-    }
-    @if($font_size == xx-large){
-        $left:46px;
-    }
-    // =========================
-    
-    i {
-        // les icônes qui sont des éléments ::before doivent être en inline pour pouvoir leur appliquer un gradient !
-        display: inline;
-        position: relative;
-    
-        &:first-child {
-            left: $left;
-            color: black;
-            opacity: 1;
-            transition: opacity 500ms ease-in-out;
-        }
-    
-        &:last-child {
-            opacity: 0;
-            // webkit indispensable pour conserver la forme de l'icône
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            background-image: linear-gradient(to bottom, $color-secondary, $color-primary);
-            @extend %transition;
-        }
-    }
-    &:hover {
-        i {
-            &:first-child {
-                opacity: 0;
-            }
-    
-            &:last-child {
-                opacity: 1;
-                cursor: pointer;
-            }
-        }
-    }
-}
+// ====================================================

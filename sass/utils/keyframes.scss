@@ -1,0 +1,14 @@
+// Animation du check
+@keyframes check-rotate {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    10% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

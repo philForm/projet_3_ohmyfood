@@ -6,14 +6,6 @@
     filter: drop-shadow($shadow-dark);
 }
 
-%transition{
-    transition: all 500ms ease-in-out;
-}
-
-%transform{
-    transform: scale(1.03);
-}
-
 %padding-sect-foot{
     padding: 20px 5%;
 }

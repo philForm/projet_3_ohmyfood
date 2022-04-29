@@ -20,7 +20,7 @@
         position: relative;
         @include flex-center(start, baseline);
         box-shadow: $shadow-light;
-        @extend %transition;
+        @include transition;
         gap: 10%;
         font-size: 1.5rem;
         padding: 26px 5% 0 14%;
@@ -47,7 +47,7 @@
             margin-bottom: 5px;
         }
         &:hover{
-            @extend %transform;
+            @include transf-scale;
             box-shadow: $shadow-dark;
             background-color: $color-card-hover;
             cursor: pointer;
