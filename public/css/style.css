@@ -86,8 +86,10 @@ body .bloc-page {
 }
 
 .header {
-  text-align: center;
-  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 }
 main {
   display: flex;
@@ -349,6 +351,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap-reverse;
 }
 .header i {
   transition: all 500ms ease-in-out;
@@ -421,23 +424,16 @@ main {
   flex-wrap: wrap;
 }
 
-/* Bloc caché qui va tronquer le texte */
-.bloc-1 {
-  width: 5rem;
-}
-
-.bloc-2 {
-  width: 0;
-  transition: all 1s;
-}
-
 .hidden-square {
   position: absolute;
   min-height: -webkit-fill-available;
   display: flex;
   width: 10rem;
   right: -5rem;
-  transition: all 1s;
+  transition: all 0.5s;
+}
+.hidden-square .group__price {
+  transition: all 0.4s;
 }
 .hidden-square .check {
   display: flex;
@@ -449,6 +445,7 @@ main {
   height: 30px;
   border-radius: 50%;
   background-color: white;
+  transition: all 0.2s;
 }
 
 .group {
@@ -494,6 +491,14 @@ main {
   cursor: pointer;
   border-radius: 15px;
   transition: all 500ms ease-in-out;
+  /* Bloc caché qui va tronquer le texte */
+}
+.group__card .bloc-1 {
+  width: 5rem;
+}
+.group__card .bloc-2 {
+  width: 0;
+  transition: all 0.5s;
 }
 .group__card:hover {
   transform: scale(1.03);
@@ -501,43 +506,49 @@ main {
 .group__card:hover .bloc-2 {
   width: 5rem;
 }
-.group__card:hover .hidden-square {
-  right: 0;
-}
 .group__card:hover .hidden-square i {
-  animation: check-rotate 1s ease-in-out;
+  animation: check-rotate 0.5s ease-in-out;
+}
+.group__card:hover .hidden-square .group__price {
+  transform: translateX(-35px);
+  transition: all 0.5s;
+  transition-delay: 0.05s;
+}
+.group__card:hover .hidden-square .group__check {
+  transform: translateX(-50px);
 }
 .group__text {
   flex-grow: 1;
-  width: 10rem;
+  min-width: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 0 0 14px;
 }
 .group__text p,
 .group__text h4 {
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
 .group__price {
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-end;
   font-weight: 500;
-  width: 5rem;
-  transition: all 1s;
+  min-width: 5rem;
 }
 .group__price p {
   padding-bottom: 12px;
 }
 .group__check {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
-  background-color: #99e2d0;
+  min-width: 5rem;
+  background-color: #99E2D0;
+  transition: all 0.5s;
 }
 @media screen and (min-width: 768px) {
   .group__card {

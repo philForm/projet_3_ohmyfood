@@ -1,0 +1,26 @@
+.header {
+    &--space_arr {
+        @include flex-center(space-around);
+        flex-wrap: wrap-reverse;
+    }
+    i {
+        @include transition;
+    }
+    a:hover {
+        i {
+            @include transf-scale(1.1);
+        }
+    }
+}
+
+main {
+    gap: 0;
+}
+
+.back-image {
+    width: 100%;
+    height: 300px;
+    .img {
+        @include image-center;
+    }
+}

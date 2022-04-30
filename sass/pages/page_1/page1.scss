@@ -1,70 +1,6 @@
-.header {
-    &--space_arr {
-        @include flex-center(space-around);
-    }
-    i {
-        @include transition;
-    }
-    a:hover {
-        i {
-            @include transf-scale(1.1);
-        }
-    }
-}
-
-main {
-    gap: 0;
-}
-
-// .section{
-//     &--bord_rad{
-//         border-radius: 40px 40px 0 0 ;
-
-//     }
-// }
-
-.back-image {
-    width: 100%;
-    height: 300px;
-    .img {
-        @include image-center;
-    }
-}
-.bloc-cards {
-    $ascent: -50px;
-    position: relative;
-    top: $ascent;
-    // Supprime la bordure qui s'est rajoutée en bas suite à la remontée du bloc !
-    margin-bottom: $ascent;
-    border-radius: 40px 40px 0 0;
-    padding-bottom: 60px;
-    @extend %padding-sect-foot;
-    @include mobile {
-        @include padding-sect-foot-mobile;
-        padding-bottom: 60px;
-    }
-    .heart {
-        // Animation des coeurs !
-        @include anim-heart(xx-large);
-    }
-}
-.title--shrink {
-    @extend %shrikhand;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-/* Bloc caché qui va tronquer le texte */
-.bloc-1 {
-    width: 5rem;
-}
-
-// Bloc caché dont la taille augmente de 5rem au hover et qui va pousser le bloc-1
-.bloc-2 {
-    width: 0;
-    transition: all 1s;
-}
+// header, main, image de fond
+@import "./page_1_header";
+@import "./page_1_section-1_bloc-cards";
 
 // Bloc visible contenant le prix et l'icône check
 .hidden-square {
@@ -74,8 +10,10 @@ main {
     display: flex;
     width: 10rem;
     right: -5rem;
-    transition: all 1s;
-
+    transition: all $trans-fast;
+    .group__price {
+        transition: all calc($trans-fast - ($trans-fast * 1/5));
+    }
     .check {
         @include flex-center;
         margin: auto;
@@ -84,6 +22,7 @@ main {
         height: 30px;
         border-radius: 50%;
         background-color: white;
+        transition: all calc($trans-fast - ($trans-fast * 3/5));
     }
 }
 
@@ -121,6 +60,15 @@ main {
         cursor: pointer;
         border-radius: 15px;
         @include transition;
+        /* Bloc caché qui va tronquer le texte */
+        .bloc-1 {
+            width: 5rem;
+        }
+        // Bloc caché dont la taille augmente de 5rem au hover et qui va pousser le bloc-1
+        .bloc-2 {
+            width: 0;
+            transition: all $trans-fast;
+        }
 
         &:hover {
             @include transf-scale;
@@ -128,44 +76,54 @@ main {
                 width: 5rem;
             }
             .hidden-square {
-                right: 0;
                 i {
-                    animation: check-rotate 1s ease-in-out;
+                    animation: check-rotate $trans-fast ease-in-out;
+                }
+                .group{
+                    &__price {
+                    transform: translateX(-35px);
+                    transition: all $trans-fast;
+                    transition-delay: calc($trans-fast/10);
+                    }
+                    &__check {
+                        transform: translateX(-50px);
+                    }
                 }
             }
         }
     }
     &__text {
         flex-grow: 1;
-        width: 10rem;
+        min-width: 10rem;
         // =================
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0 0 0 14px;
+        // padding: 0 0 0 14px;
         // =================
-
         p,
         h4 {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            @include ellipse;
         }
     }
 
     &__price {
-        @include flex-center(center, flex-end);
+        position: relative;
+        @include flex-center(start, flex-end);
         font-weight: 500;
-        width: 5rem;
-        transition: all 1s;
+        min-width: 5rem;
+
         p {
             padding-bottom: 12px;
         }
     }
     &__check {
+        position: relative;
+
         @include flex-center;
-        width: 5rem;
-        background-color: #99e2d0;
+        min-width: 5rem;
+        background-color: $color-tertiary;
+        transition: all $trans-fast;
     }
     @include tablet-min {
         &__card {

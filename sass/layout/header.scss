@@ -1,6 +1,6 @@
 .header{
-    text-align: center;
-    padding: 20px 0;
+    @include flex-center;
+    height: 60px;
     h1{
         @extend %shrikhand;
     }

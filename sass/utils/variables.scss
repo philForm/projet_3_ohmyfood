@@ -1,4 +1,4 @@
-// Couleurs princiâles
+// Couleurs principales
 
 $color-primary : #9356DC;
 $color-secondary : #FF79DA;
@@ -17,5 +17,8 @@ $breakpoints:(
     largest: 1440px,
     desktop: 992px,
     mobile: 768px
-)
+);
+
+// Durées transitions
+$trans-fast: .5s;
 
