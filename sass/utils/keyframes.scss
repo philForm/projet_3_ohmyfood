@@ -12,3 +12,26 @@
         transform: rotate(360deg);
     }
 }
+
+// Apparition progressive des cartes menu
+@keyframes cards-appear{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    60%{
+        // opacity: .4;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

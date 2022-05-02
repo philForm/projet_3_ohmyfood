@@ -49,6 +49,26 @@ a {
     transform: rotate(360deg);
   }
 }
+@keyframes cards-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .btn {
   box-shadow: 2px 3px 7px 3px #bcbcbc;
   min-width: 240px;
@@ -374,6 +394,54 @@ main {
   height: 100%;
 }
 
+.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(1) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0s;
+}
+.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(2) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(3) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(1) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(2) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(3) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+}
+
+.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(1) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 3s;
+}
+.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(2) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 3.5s;
+}
+.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(3) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 4s;
+}
+
 .bloc-cards {
   position: relative;
   top: -50px;
@@ -430,10 +498,10 @@ main {
   display: flex;
   width: 10rem;
   right: -5rem;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 .hidden-square .group__price {
-  transition: all 0.4s;
+  transition: all 0.8s;
 }
 .hidden-square .check {
   display: flex;
@@ -445,7 +513,7 @@ main {
   height: 30px;
   border-radius: 50%;
   background-color: white;
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 
 .group {
@@ -498,7 +566,7 @@ main {
 }
 .group__card .bloc-2 {
   width: 0;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 .group__card:hover {
   transform: scale(1.03);
@@ -507,12 +575,12 @@ main {
   width: 5rem;
 }
 .group__card:hover .hidden-square i {
-  animation: check-rotate 0.5s ease-in-out;
+  animation: check-rotate 1s ease-in-out;
 }
 .group__card:hover .hidden-square .group__price {
   transform: translateX(-35px);
-  transition: all 0.5s;
-  transition-delay: 0.05s;
+  transition: all 1s;
+  transition-delay: 0.1s;
 }
 .group__card:hover .hidden-square .group__check {
   transform: translateX(-50px);
@@ -548,7 +616,7 @@ main {
   align-items: center;
   min-width: 5rem;
   background-color: #99E2D0;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 @media screen and (min-width: 768px) {
   .group__card {

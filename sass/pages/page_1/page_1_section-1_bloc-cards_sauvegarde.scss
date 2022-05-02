@@ -1,24 +1,15 @@
-$time:0;
-@for $i from 2 through 4 {
-    .bloc-cards {
-        .group:nth-child(#{$i}) {
-            $delay: ($i - 2) * 1.5;
-            $time: 1;
-            @for $j from 1 through 3 {
-                .group__dish {
-                    & > .group__card:nth-child(#{$j}) {
-                        animation: cards-appear 2s ease-in-out;
-                        animation-fill-mode: both;
-                        animation-delay: calc(($j + $delay - $time) * 1s);
-                        $time: calc($time + 0.5);
-                    }
-                }
+
+.bloc-cards {
+    .group:nth-child(2){
+        .group__dish{
+            &>.group__card:nth-child(1){
+                border: 5px solid black;
             }
         }
     }
-}
-
-.bloc-cards {
+    
+    
+    
     $ascent: -50px;
     position: relative;
     top: $ascent;

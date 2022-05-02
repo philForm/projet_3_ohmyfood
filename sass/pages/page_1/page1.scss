@@ -12,7 +12,7 @@
     right: -5rem;
     transition: all $trans-fast;
     .group__price {
-        transition: all calc($trans-fast - ($trans-fast * 1/5));
+        transition: all calc($trans-fast - ($trans-fast * 1 / 5));
     }
     .check {
         @include flex-center;
@@ -22,7 +22,7 @@
         height: 30px;
         border-radius: 50%;
         background-color: white;
-        transition: all calc($trans-fast - ($trans-fast * 3/5));
+        transition: all calc($trans-fast - ($trans-fast * 3 / 5));
     }
 }
 
@@ -47,6 +47,23 @@
         flex-wrap: wrap;
         gap: 20px;
     }
+    // &__card {
+    //     &:first-child {
+    //         animation: cards-appear 2s ease-in-out;
+    //         animation-fill-mode: both;
+    //     }
+    //     &:nth-child(2) {
+    //         animation: cards-appear 2s ease-in-out;
+    //         animation-fill-mode: both;
+    //         animation-delay: 0.5s;
+    //     }
+    //     &:last-child {
+    //         animation: cards-appear 2s ease-in-out;
+    //         animation-fill-mode: both;
+    //         animation-delay: 1s;
+    //     }
+    // }
+
     &__card {
         position: relative;
         @include flex-center(space-between);
@@ -79,11 +96,11 @@
                 i {
                     animation: check-rotate $trans-fast ease-in-out;
                 }
-                .group{
+                .group {
                     &__price {
-                    transform: translateX(-35px);
-                    transition: all $trans-fast;
-                    transition-delay: calc($trans-fast/10);
+                        transform: translateX(-35px);
+                        transition: all $trans-fast;
+                        transition-delay: calc($trans-fast/10);
                     }
                     &__check {
                         transform: translateX(-50px);
