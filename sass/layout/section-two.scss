@@ -29,6 +29,7 @@
             @include flag;
             &::before{
                 @include transition;
+                transform-origin: 50% -100px;
             }    
         }
         width: inherit;
@@ -61,7 +62,8 @@
         cursor: pointer;
     
         .card-resto__image--flag::before {
-            opacity: .9;
+            // opacity: .9;
+            animation: pendulum2 4s;
         }
     }
     @include tablet-min{

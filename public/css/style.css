@@ -18,7 +18,8 @@ html {
   counter-reset: my-sec-counter;
 }
 
-body, span {
+body,
+span {
   font-family: "Roboto", sans-serif;
 }
 
@@ -63,10 +64,99 @@ a {
 }
 @keyframes opacity {
   0% {
-    opacity: 0;
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes pendulum {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(20deg);
+  }
+  20% {
+    transform: rotate(-18deg);
+  }
+  30% {
+    transform: rotate(16deg);
+  }
+  40% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(8deg);
+  }
+  80% {
+    transform: rotate(-6deg);
+  }
+  90% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes pendulum2 {
+  0% {
+    transform: rotate(0);
+  }
+  8% {
+    transform: rotate(20deg);
+  }
+  16% {
+    transform: rotate(-18deg);
+  }
+  24% {
+    transform: rotate(16deg);
+  }
+  32% {
+    transform: rotate(-14deg);
+  }
+  40% {
+    transform: rotate(12deg);
+  }
+  48% {
+    transform: rotate(-10deg);
+  }
+  56% {
+    transform: rotate(8deg);
+  }
+  64% {
+    transform: rotate(-6deg);
+  }
+  72% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  88% {
+    transform: rotate(1deg);
+  }
+  96% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 .btn {
@@ -85,7 +175,7 @@ a {
 .btn:hover {
   transform: scale(1.03);
   box-shadow: 2px 3px 7px 3px #9f9f9f;
-  filter: hue-rotate(15deg);
+  opacity: 0.9;
   cursor: pointer;
 }
 
@@ -207,7 +297,7 @@ main {
 .operation__card:hover {
   transform: scale(1.03);
   box-shadow: 2px 3px 7px 3px #9f9f9f;
-  background-color: #f5edff;
+  background-color: #f2eafb;
   cursor: pointer;
 }
 .operation__card:hover i {
@@ -265,6 +355,7 @@ main {
 }
 .card-resto__image--flag::before {
   transition: all 500ms ease-in-out;
+  transform-origin: 50% -100px;
 }
 .card-resto__image img {
   object-fit: cover;
@@ -320,7 +411,7 @@ main {
   cursor: pointer;
 }
 .card-resto:hover .card-resto__image--flag::before {
-  opacity: 0.9;
+  animation: pendulum2 4s;
 }
 @media screen and (min-width: 768px) {
   .card-resto {
@@ -457,14 +548,14 @@ main {
 }
 .bloc-cards .heart {
   position: relative;
-  font-size: xx-large;
+  font-size: x-large;
 }
 .bloc-cards .heart i {
   display: inline;
   position: relative;
 }
 .bloc-cards .heart i:first-child {
-  left: 46px;
+  left: 35px;
   color: black;
   opacity: 1;
   transition: opacity 500ms ease-in-out;

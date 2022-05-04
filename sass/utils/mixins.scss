@@ -6,12 +6,11 @@
 }
 
 // Garder le ratio des images et les centrer dans leur container.
-@mixin image-center{
+@mixin image-center {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
-
 
 @mixin ellipse {
     text-overflow: ellipsis;
@@ -19,16 +18,14 @@
     overflow: hidden;
 }
 
-
-
 // ======================================
 // ANIMATIONS
 // ======================================
-@mixin transf-scale($scale:1.03){
+@mixin transf-scale($scale: 1.03) {
     transform: scale($scale);
 }
 
-@mixin transition($elt: all, $duration: 500ms, $ease: ease-in-out){
+@mixin transition($elt: all, $duration: 500ms, $ease: ease-in-out) {
     transition: $elt $duration $ease;
 }
 
@@ -41,11 +38,13 @@
 
     // =========================
     // condition pour la valeur de la variable $left
-    @if ($font_size==large) {
+    @if ($font_size == large) {
         $left: 27px;
     }
-
-    @if ($font_size==xx-large) {
+    @if ($font_size == x-large) {
+        $left: 35px;
+    }
+    @if ($font_size == xx-large) {
         $left: 46px;
     }
     // =========================
@@ -93,6 +92,22 @@
 // ======================================
 // PSEUDO-ELEMENTS
 // ======================================
+
+// loader
+@mixin loader {
+    &::before {
+        content: "load";
+        @include flex-center;
+        position: fixed;
+        font-size: 10rem;
+        inset: 0;
+        background-color: rgba(137, 43, 226, 1);
+        z-index: 1;
+        animation: opacity 5s ease-in-out;
+        animation-fill-mode: both;
+    }
+}
+
 // Flag "Nouveau" sur les cartes
 @mixin flag {
     &::before {

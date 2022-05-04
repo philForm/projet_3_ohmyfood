@@ -13,7 +13,8 @@
     &:hover{
         @include transf-scale;
         box-shadow: $shadow-dark;
-        filter: hue-rotate(15deg);
+        // filter: hue-rotate(15deg);
+        opacity: 0.9;
         cursor: pointer;
     }
 }

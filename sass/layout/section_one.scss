@@ -49,7 +49,8 @@
         &:hover{
             @include transf-scale;
             box-shadow: $shadow-dark;
-            background-color: $color-card-hover;
+            // background-color: $color-card-hover;
+            background-color: lighten($color-primary, 35%);
             cursor: pointer;
         }
         &:hover i{
