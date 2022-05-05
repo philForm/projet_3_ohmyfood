@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
-    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/",
+    "minify": "css-minify -d ./public/css/prefixed/ -o ./public/css/minify/"
   },
   "author": "",
   "license": "ISC",
   "browserslist": "last 4 versions",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "css-minify": "^2.0.0",
     "postcss": "^8.4.13",
     "postcss-cli": "^9.1.0",
     "sass": "^1.50.0"

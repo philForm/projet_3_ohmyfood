@@ -6,7 +6,8 @@
 .hidden-square {
     position: absolute;
     // remplit toute la hauteur
-    min-height: -webkit-fill-available;
+    // min-height: -webkit-fill-available;
+    min-height: 100%;
     display: flex;
     width: 10rem;
     right: -5rem;
@@ -47,22 +48,6 @@
         flex-wrap: wrap;
         gap: 20px;
     }
-    // &__card {
-    //     &:first-child {
-    //         animation: cards-appear 2s ease-in-out;
-    //         animation-fill-mode: both;
-    //     }
-    //     &:nth-child(2) {
-    //         animation: cards-appear 2s ease-in-out;
-    //         animation-fill-mode: both;
-    //         animation-delay: 0.5s;
-    //     }
-    //     &:last-child {
-    //         animation: cards-appear 2s ease-in-out;
-    //         animation-fill-mode: both;
-    //         animation-delay: 1s;
-    //     }
-    // }
 
     &__card {
         position: relative;

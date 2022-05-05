@@ -30,9 +30,9 @@ span {
     // background: $colour-secondary;
 }
 
-// .loader{
-//     @include  mixins.loader;
-// }
+.loader{
+    @include  mixins.loader;
+}
 
 .section-title {
     font-size: x-large;

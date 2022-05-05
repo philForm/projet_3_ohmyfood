@@ -23,6 +23,20 @@ span {
   font-family: "Roboto", sans-serif;
 }
 
+.loader::before {
+  content: "load";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  font-size: 10rem;
+  inset: 0;
+  background-color: rgb(137, 43, 226);
+  z-index: 1;
+  animation: opacity 5s ease-in-out;
+  animation-fill-mode: both;
+}
+
 .section-title {
   font-size: x-large;
 }
@@ -487,49 +501,49 @@ main {
 
 .bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 0s;
 }
 .bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 0.5s;
 }
 .bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 1s;
 }
 
 .bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 1.5s;
 }
 .bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 2s;
 }
 .bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 2.5s;
 }
 
 .bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 3s;
 }
 .bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 3.5s;
 }
 .bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: backwards;
   animation-delay: 4s;
 }
 
@@ -585,7 +599,7 @@ main {
 
 .hidden-square {
   position: absolute;
-  min-height: -webkit-fill-available;
+  min-height: 100%;
   display: flex;
   width: 10rem;
   right: -5rem;

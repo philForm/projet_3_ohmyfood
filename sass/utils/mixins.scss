@@ -87,6 +87,34 @@
     }
 }
 
+// Animation des cartes menu qui apparaissent progressivement
+@mixin anim-cards($bloc:1.5, $card: .5) {
+    // délai d'apparition des blocs menu en seconde
+    $bloc-gap: $bloc;
+    // délai d'apparition des cartes menu en seconde
+    $card-gap: $card;
+    @for $i from 1 through 3 {
+        .bloc-cards {
+            .group:nth-child(#{$i + 1}) {
+                $delay: ($i - 1) * abs($bloc-gap);
+                $time: 1;
+                @for $j from 1 through 3 {
+                    .group__dish {
+                        & > .group__card:nth-child(#{$j}) {
+                            animation: cards-appear 2s ease-in-out;
+                            // both remplacé par backwards car celui-là bloquait les transitions des animations au hover sur les cartes.
+                            // animation-fill-mode: both;
+                            animation-fill-mode: backwards;
+                            animation-delay: calc(($j + $delay - $time) * 1s);
+                            $time: calc($time - abs($card-gap) + 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 // ======================================
 
 // ======================================

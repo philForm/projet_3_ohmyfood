@@ -1,24 +1,7 @@
-$bloc-gap: 1.5;
-$card-gap: .5;
 
-@for $i from 1 through 3 {
-    .bloc-cards {
-        .group:nth-child(#{$i + 1}) {
-            $delay: ($i - 1) * $bloc-gap;
-            $time: 1;
-            @for $j from 1 through 3 {
-                .group__dish {
-                    & > .group__card:nth-child(#{$j}) {
-                        animation: cards-appear 2s ease-in-out;
-                        animation-fill-mode: both;
-                        animation-delay: calc(($j + $delay - $time) * 1s);
-                        $time: calc($time + $card-gap);
-                    }
-                }
-            }
-        }
-    }
-}
+// Premier argument  : delai pour les blocs menu en seconde
+// Deuxième argument : delai pour les cartes menu en seconde
+@include anim-cards();
 
 .bloc-cards {
     $ascent: -50px;
