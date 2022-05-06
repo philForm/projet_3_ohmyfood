@@ -63,9 +63,6 @@
         @include transition;
         &:hover {
             @include transf-scale;
-            .bloc-2 {
-                width: 5rem;
-            }
             .group__text {
                 padding-right: 36px;
             }

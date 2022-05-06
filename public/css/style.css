@@ -672,9 +672,6 @@ main {
 .group__card:hover {
   transform: scale(1.03);
 }
-.group__card:hover .bloc-2 {
-  width: 5rem;
-}
 .group__card:hover .group__text {
   padding-right: 36px;
 }
