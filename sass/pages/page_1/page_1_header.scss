@@ -1,7 +1,11 @@
 .header {
-    &--space_arr {
+    &--space {
         @include flex-center(space-around);
         flex-wrap: wrap-reverse;
+        &::after {
+            content: "";
+            width: 18px;
+        }
     }
     i {
         @include transition;
