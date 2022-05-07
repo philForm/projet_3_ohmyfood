@@ -40,51 +40,10 @@
         visibility: hidden;
     }
 }
-// Animation de balancier
-@keyframes pendulum {
-    0% {
-        transform: rotate(0);
-    }
-    10% {
-        transform: rotate(20deg);
-    }
-    20% {
-        transform: rotate(-18deg);
-    }
-    30% {
-        transform: rotate(16deg);
-    }
-    40% {
-        transform: rotate(-14deg);
-    }
-    50% {
-        transform: rotate(12deg);
-    }
-    60% {
-        transform: rotate(-10deg);
-    }
-    70% {
-        transform: rotate(8deg);
-    }
-    80% {
-        transform: rotate(-6deg);
-    }
-    90% {
-        transform: rotate(4deg);
-    }
-    100% {
-        transform: rotate(-2deg);
-    }
-    100% {
-        transform: rotate(1deg);
-    }
-    100% {
-        transform: rotate(0);
-    }
-}
+
 
 // Animation de balancier
-@keyframes pendulum2 {
+@keyframes pendulum {
     0% {
         transform: rotate(0);
     }

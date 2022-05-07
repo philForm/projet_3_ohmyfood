@@ -1,7 +1,9 @@
+@use "../../utils/mixins" as mix;
+@use "../../utils/placeholders" as *;
 
 // Premier argument  : delai pour les blocs menu en seconde
 // Deuxième argument : delai pour les cartes menu en seconde
-@include anim-cards();
+@include mix.anim-cards();
 
 .bloc-cards {
     $ascent: -50px;
@@ -12,13 +14,13 @@
     border-radius: 40px 40px 0 0;
     padding-bottom: 60px;
     @extend %padding-sect-foot;
-    @include mobile {
-        @include padding-sect-foot-mobile;
+    @include mix.mobile {
+        @include mix.padding-sect-foot-mobile;
         padding-bottom: 60px;
     }
     .heart {
         // Animation des coeurs !
-        @include anim-heart(x-large);
+        @include mix.anim-heart(x-large);
     }
 }
 .title--shrink {

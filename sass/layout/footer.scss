@@ -1,5 +1,8 @@
-.footer{
-    h3{
+@use "../utils/placeholders" as phold;
+@use "../utils/mixins" as mix;
+
+.footer {
+    h3 {
         @extend %shrikhand;
         padding: 0 30px 20px 0;
     }
@@ -9,33 +12,32 @@
     height: auto;
     background-color: black;
     color: white;
-    .bloc-page{
+    .bloc-page {
         @extend %padding-sect-foot;
-        div{
+        div {
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
-            ul{
+            ul {
                 display: flex;
-                gap: 20px; 
+                gap: 20px;
             }
-            a{
+            a {
                 display: flex;
                 color: inherit;
             }
-            i{
+            i {
                 margin-right: 10px;
             }
         }
-        @include mobile{
-            @include padding-sect-foot-mobile;
-            div{
-                &, ul{
-                    flex-direction: column;    
+        @include mix.mobile {
+            @include mix.padding-sect-foot-mobile;
+            div {
+                &,
+                ul {
+                    flex-direction: column;
                 }
             }
         }
-        
     }
-    
 }

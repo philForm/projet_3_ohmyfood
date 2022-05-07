@@ -1,18 +1,13 @@
-@import "./base/base";
+@use "./base/base";
 
-@import "./utils/variables";
-@import "./utils/mixins";
-@import "./utils/placeholders";
-@import "./utils/keyframes";
+@use "./components/buttons";
 
-@import "./components/buttons";
+@use "./layout/html";
+@use "./layout/header";
+@use "./layout/main";
+@use "./layout/explode";
+@use "./layout/section_one";
+@use "./layout/section-two";
+@use "./layout/footer";
 
-@import "./layout/html";
-@import "./layout/header";
-@import "./layout/main";
-@import "./layout/explode";
-@import "./layout/section_one";
-@import "./layout/section-two";
-@import "./layout/footer";
-
-@import "./pages/page_1/page1"
+@use "./pages/page_1/page1"

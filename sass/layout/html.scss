@@ -1,16 +1,17 @@
+@use "../utils/mixins" as mix;
 
 body{
     .bloc-page {
         width: 100%;
         margin: auto;
     }
-    @include largest{
+    @include mix.largest{
         .bloc-page{
             // width: 1302px;
             width: 1440px;
         }
     }
-    @include mobile{
+    @include mix.mobile{
         .bloc-page{
             width: 100%;
             margin: auto;

@@ -1,5 +1,8 @@
+@use "../utils/mixins" as mix;
+@use "../utils/placeholders" as *;
+
 .header{
-    @include flex-center;
+    @include mix.flex-center;
     height: 60px;
     h1{
         @extend %shrikhand;

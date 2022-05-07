@@ -1,9 +1,13 @@
+@use "../utils/placeholders" as *;
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+
 .section{
     width: 100%;
     height: auto;
     @extend %padding-sect-foot;
-    @include mobile{
-        @include padding-sect-foot-mobile; 
+    @include mix.mobile{
+        @include mix.padding-sect-foot-mobile; 
     }
     &__title{
         &--marg-btm{
@@ -18,23 +22,23 @@
     gap: 20px;
     &__card{
         position: relative;
-        @include flex-center(start, baseline);
-        box-shadow: $shadow-light;
-        @include transition;
+        @include mix.flex-center(start, baseline);
+        box-shadow: var.$shadow-light;
+        @include mix.transition;
         gap: 10%;
         font-size: 1.5rem;
         padding: 26px 5% 0 14%;
         width: 100%;
         min-height: 62px;
-        background-color: $color-neutral-light;
+        background-color: var.$color-neutral-light;
         border-radius: 20px;
         div:first-child{
-            @include flex-center;
+            @include mix.flex-center;
             position: absolute;
             width: 30px;
             height: 30px;
             color: white;
-            background-color: $color-primary;
+            background-color: var.$color-primary;
             border-radius: 50%;
             left: -15px;
             bottom: 24%;
@@ -47,20 +51,20 @@
             margin-bottom: 5px;
         }
         &:hover{
-            @include transf-scale;
-            box-shadow: $shadow-dark;
+            @include mix.transf-scale;
+            box-shadow: var.$shadow-dark;
             // background-color: $color-card-hover;
-            background-color: lighten($color-primary, 35%);
+            background-color: lighten(var.$color-primary, 35%);
             cursor: pointer;
         }
         &:hover i{
-            color: $color-primary;
+            color: var.$color-primary;
         }
     }
-    @include tablet-min{
+    @include mix.tablet-min{
         &__card {
             max-width: 30%;
-            @include flex-center(start);
+            @include mix.flex-center(start);
             padding: 0 15px 0 5%;
         }
     }

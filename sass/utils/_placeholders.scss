@@ -1,9 +1,10 @@
+@use "./variables" as var;
 
 %shadow-light{
-    filter: drop-shadow($shadow-light);
+    filter: drop-shadow(var.$shadow-light);
 }
 %shadow-dark{
-    filter: drop-shadow($shadow-dark);
+    filter: drop-shadow(var.$shadow-dark);
 }
 
 %padding-sect-foot{

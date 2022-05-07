@@ -1,8 +1,12 @@
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mix;
+@use "../utils/keyframes" as *;
+
 .section {
     &--color {
-        background-color: $color-neutral-light;
+        background-color: var.$color-neutral-light;
     }
-    // @include tablet-min{
+    // mix.@include tablet-min{
     //     border-radius: 20px 20px 0 0;
     // }
 }
@@ -16,19 +20,18 @@
 }
 
 .card-resto{
-    box-shadow: $shadow-light;
-    @include transition;
+    box-shadow: var.$shadow-light;
+    @include mix.transition;
     width: 100%;
     height: auto;
     background-color: white;
     border-radius: 20px;
     &__image{
         position: relative;
-        // display: flex;
         &--flag{
-            @include flag;
+            @include mix.flag;
             &::before{
-                @include transition;
+                @include mix.transition;
                 transform-origin: 50% -100px;
             }    
         }
@@ -37,11 +40,11 @@
         border-radius: 20px 20px 0 0 ;
         overflow: hidden;
         img{
-            @include image-center;
+            @include mix.image-center;
         }
     }
     &__text{
-        @include flex-center(space-between);
+        @include mix.flex-center(space-between);
         flex-wrap: wrap;
         padding: 20px 20px;
         h3{
@@ -52,21 +55,20 @@
         }
         .heart {
             // Animation des coeurs !
-            @include anim-heart;
+            @include mix.anim-heart;
         }
         
     }
     &:hover {
-        @include transf-scale;
-        box-shadow: $shadow-dark;
+        @include mix.transf-scale;
+        box-shadow: var.$shadow-dark;
         cursor: pointer;
     
         .card-resto__image--flag::before {
-            // opacity: .9;
-            animation: pendulum2 4s;
+            animation: pendulum 4s;
         }
     }
-    @include tablet-min{
+    @include mix.tablet-min{
         width: 48%;
         &__image{
             width: 100%;

@@ -1,6 +1,10 @@
+@use "../../utils/mixins" as mix;
+@use "../../utils/variables" as var;
+@use "../../utils/keyframes" as *;
+
 // header, main, image de fond
-@import "./page_1_header";
-@import "./page_1_section-1_bloc-cards";
+@use "./page_1_header";
+@use "./page_1_section-1_bloc-cards";
 
 // Bloc visible contenant le prix et l'icône check
 .hidden-square {
@@ -9,20 +13,20 @@
     display: flex;
     width: 10rem;
     right: -5rem;
-    transition: all $trans-fast;
+    transition: all var.$trans-fast;
     .group__price {
         position: absolute;
-        transition: all calc($trans-fast - ($trans-fast * 1 / 5));
+        transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
     }
     .check {
-        @include flex-center;
+        @include mix.flex-center;
         margin: auto;
-        color: $color-tertiary;
+        color: var.$color-tertiary;
         width: 30px;
         height: 30px;
         border-radius: 50%;
         background-color: white;
-        transition: all calc($trans-fast - ($trans-fast * 3 / 5));
+        transition: all calc(var.$trans-fast - (var.$trans-fast * 3 / 5));
     }
 }
 
@@ -35,7 +39,7 @@
         position: relative;
         font-size: 2rem;
         font-weight: 400;
-        @include underline;
+        @include mix.underline;
         h3 {
             text-transform: uppercase;
             font-weight: 300;
@@ -50,8 +54,8 @@
 
     &__card {
         position: relative;
-        @include flex-center(space-between);
-        box-shadow: $shadow-light;
+        @include mix.flex-center(space-between);
+        box-shadow: var.$shadow-light;
         background-color: white;
         width: 100%;
         padding: 0 0 0 14px;
@@ -60,21 +64,21 @@
         overflow: hidden;
         cursor: pointer;
         border-radius: 15px;
-        @include transition;
+        @include mix.transition;
         &:hover {
-            @include transf-scale;
+            @include mix.transf-scale;
             .group__text {
                 padding-right: 36px;
             }
             .hidden-square {
                 i {
-                    animation: check-rotate $trans-fast ease-in-out;
+                    animation: check-rotate var.$trans-fast ease-in-out;
                 }
                 .group {
                     &__price {
                         transform: translateX(-35px);
-                        transition: all $trans-fast;
-                        transition-delay: calc($trans-fast/10);
+                        transition: all var.$trans-fast;
+                        transition-delay: calc(var.$trans-fast/10);
                     }
                     &__check {
                         transform: translateX(-50px);
@@ -89,18 +93,18 @@
         justify-content: center;
         padding: 0 0 0 14px;
         width: calc(100% - 50px);
-        transition: all calc($trans-fast - ($trans-fast * 1 / 5));
+        transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
 
         // =================
         p,
         h4 {
-            @include ellipse;
+            @include mix.ellipse;
         }
     }
 
     &__price {
         position: relative;
-        @include flex-center(start, flex-end);
+        @include mix.flex-center(start, flex-end);
         font-weight: 500;
         min-width: 5rem;
         min-height: 100%;
@@ -111,15 +115,15 @@
     }
     &__check {
         position: relative;
-        @include flex-center;
+        @include mix.flex-center;
         min-width: 5rem;
         right: -50px;
-        background-color: $color-tertiary;
+        background-color: var.$color-tertiary;
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $color-tertiary;
-        transition: all $trans-fast;
+        -webkit-text-stroke-color: var.$color-tertiary;
+        transition: all var.$trans-fast;
     }
-    @include tablet-min {
+    @include mix.tablet-min {
         &__card {
             max-width: 31%;
         }
