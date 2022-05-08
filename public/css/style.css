@@ -79,6 +79,41 @@
     transform: rotate(0);
   }
 }
+@keyframes chrome-variation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(0.8, 2);
+  }
+  60% {
+    transform: scale(1.1, 0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bloc-cards, .footer .bloc-page, .section {
+  padding: 20px 5%;
+}
+
+.title--shrink, .footer h3, .header h1, .loader__text p span {
+  font-family: "Shrikhand", cursive;
+}
+
+@keyframes display {
+  to {
+    visibility: hidden;
+  }
+}
 *,
 *::after,
 *::before {
@@ -101,20 +136,64 @@ span {
   font-family: "Roboto", sans-serif;
 }
 
-.loader::before {
-  content: "load";
+.loader {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   font-size: 10rem;
   inset: 0;
-  background-color: rgb(137, 43, 226);
+  background-image: linear-gradient(170deg, #FF79DA, #9356DC);
   z-index: 1;
   animation: opacity 5s ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
-
+.loader__text p {
+  animation: display 5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+  position: fixed;
+  inset: 0;
+  color: #9356DC;
+  animation: pendulum 6s infinite;
+  transform-origin: 50% -100px;
+  opacity: 50%;
+  z-index: 2;
+}
+.loader__text p span:nth-child(1) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 0s;
+}
+.loader__text p span:nth-child(2) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 0.2s;
+}
+.loader__text p span:nth-child(3) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 0.4s;
+}
+.loader__text p span:nth-child(4) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 0.6s;
+}
+.loader__text p span:nth-child(5) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 0.8s;
+}
+.loader__text p span:nth-child(6) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 1s;
+}
+.loader__text p span:nth-child(7) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 1.2s;
+}
+.loader__text p span:nth-child(8) {
+  animation: chrome-variation 1s linear infinite;
+  animation-delay: 1.4s;
+}
 .section-title {
   font-size: x-large;
 }
@@ -124,6 +203,7 @@ a {
 }
 
 .btn {
+  position: relative;
   box-shadow: 2px 3px 7px 3px #bcbcbc;
   min-width: 240px;
   height: 60px;
@@ -139,8 +219,21 @@ a {
 .btn:hover {
   transform: scale(1.03);
   box-shadow: 2px 3px 7px 3px #9f9f9f;
-  opacity: 0.9;
   cursor: pointer;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  inset: 0;
+  background-image: linear-gradient(170deg, #FF79DA, #9356DC);
+  filter: hue-rotate(15deg);
+  opacity: 0;
+  z-index: -1;
+  transition: all 500ms ease-in-out;
 }
 
 body .bloc-page {
@@ -157,14 +250,6 @@ body .bloc-page {
     width: 100%;
     margin: auto;
   }
-}
-
-.bloc-cards, .footer .bloc-page, .section {
-  padding: 20px 5%;
-}
-
-.title--shrink, .footer h3, .header h1 {
-  font-family: "Shrikhand", cursive;
 }
 
 .header {
@@ -477,6 +562,11 @@ main {
   animation-fill-mode: backwards;
   animation-delay: 1s;
 }
+.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(4) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.5s;
+}
 
 .bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
@@ -493,6 +583,11 @@ main {
   animation-fill-mode: backwards;
   animation-delay: 2.5s;
 }
+.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(4) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: backwards;
+  animation-delay: 3s;
+}
 
 .bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
@@ -508,6 +603,11 @@ main {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 4s;
+}
+.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(4) {
+  animation: cards-appear 2s ease-in-out;
+  animation-fill-mode: backwards;
+  animation-delay: 4.5s;
 }
 
 .bloc-cards {
@@ -566,11 +666,11 @@ main {
   display: flex;
   width: 10rem;
   right: -5rem;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .hidden-square .group__price {
   position: absolute;
-  transition: all 0.8s;
+  transition: all 0.4s;
 }
 .hidden-square .check {
   display: flex;
@@ -582,7 +682,7 @@ main {
   height: 30px;
   border-radius: 50%;
   background-color: white;
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .group {
@@ -636,12 +736,12 @@ main {
   padding-right: 36px;
 }
 .group__card:hover .hidden-square i {
-  animation: check-rotate 1s ease-in-out;
+  animation: check-rotate 0.5s ease-in-out;
 }
 .group__card:hover .hidden-square .group__price {
   transform: translateX(-35px);
-  transition: all 1s;
-  transition-delay: 0.1s;
+  transition: all 0.5s;
+  transition-delay: 0.05s;
 }
 .group__card:hover .hidden-square .group__check {
   transform: translateX(-50px);
@@ -652,7 +752,7 @@ main {
   justify-content: center;
   padding: 0 0 0 14px;
   width: calc(100% - 50px);
-  transition: all 0.8s;
+  transition: all 0.4s;
 }
 .group__text p,
 .group__text h4 {
@@ -682,7 +782,7 @@ main {
   background-color: #99E2D0;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #99E2D0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 @media screen and (min-width: 768px) {
   .group__card {

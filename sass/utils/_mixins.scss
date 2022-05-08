@@ -1,5 +1,6 @@
 @use "./variables" as var;
 @use "./keyframes" as *;
+@use "./placeholders" as *;
 
 // Flex center
 @mixin flex-center($just-content: center, $align: center) {
@@ -15,6 +16,7 @@
     height: 100%;
 }
 
+// Tronquer le texte en ajoutant des points de suspension.
 @mixin ellipse {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -91,7 +93,7 @@
 }
 
 // Animation des cartes menu qui apparaissent progressivement
-@mixin anim-cards($bloc:1.5, $card: .5) {
+@mixin anim-cards($bloc: 1.5, $card: 0.5) {
     // délai d'apparition des blocs menu en seconde
     $bloc-gap: $bloc;
     // délai d'apparition des cartes menu en seconde
@@ -101,11 +103,11 @@
             .group:nth-child(#{$i + 1}) {
                 $delay: ($i - 1) * abs($bloc-gap);
                 $time: 1;
-                @for $j from 1 through 3 {
+                @for $j from 1 through 4 {
                     .group__dish {
                         & > .group__card:nth-child(#{$j}) {
                             animation: cards-appear 2s ease-in-out;
-                            // both remplacé par backwards car celui-là bloquait les transitions des animations au hover sur les cartes.
+                            // both remplacé par backwards car celui-là bloque les transitions des animations au hover sur les cartes.
                             // animation-fill-mode: both;
                             animation-fill-mode: backwards;
                             animation-delay: calc(($j + $delay - $time) * 1s);
@@ -126,16 +128,48 @@
 
 // loader
 @mixin loader {
-    &::before {
-        content: "load";
-        @include flex-center;
-        position: fixed;
-        font-size: 10rem;
-        inset: 0;
-        background-color: rgba(137, 43, 226, 1);
-        z-index: 1;
-        animation: opacity 5s ease-in-out;
-        animation-fill-mode: both;
+    @include flex-center;
+    position: fixed;
+    font-size: 10rem;
+    inset: 0;
+    background-image: var.$gradient-primary;
+
+    // background-color: rgba(137, 43, 226, 1);
+    z-index: 1;
+    animation: opacity 5s ease-in-out;
+    animation-fill-mode: forwards;
+    &__text {
+        
+        p {
+            animation: display 5s;
+            @include flex-center;
+            font-size: 10rem;
+            position: fixed;
+            inset: 0;
+            color: var.$color-primary;
+            animation: pendulum 6s infinite;
+            transform-origin: 50% -100px;
+            $delai: 0;
+            opacity: 50%;
+            @for $i from 1 through 8 {
+                span:nth-child(#{$i}) {
+                    animation: chrome-variation 1s linear infinite;
+                    animation-delay: $delai * 1s;
+                    $delai: $delai + 0.2;
+                }
+            }
+            z-index: 2;
+            span {
+                @extend %shrikhand;
+            }
+        }
+    }
+    // animation: display 5s;
+}
+
+@keyframes display {
+    to {
+        visibility: hidden;
     }
 }
 

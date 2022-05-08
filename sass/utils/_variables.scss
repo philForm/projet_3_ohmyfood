@@ -1,12 +1,14 @@
 // Couleurs principales
-
 $color-primary : #9356DC;
 $color-secondary : #FF79DA;
-$color-tertiary : #99E2D0; 
+$color-tertiary : #99E2D0;
 
 // Couleurs cartes
 $color-neutral-light: #f6f6f6;
 $color-card-hover:#f5edff;
+
+// Couleurs dégradées
+$gradient-primary: linear-gradient(170deg, $color-secondary, $color-primary);
 
 // Ombrages
 $shadow-light: 2px 3px 7px 3px #bcbcbc;
@@ -20,5 +22,5 @@ $breakpoints:(
 );
 
 // Durées transitions
-$trans-fast: 1s;
+$trans-fast: .5s;
 
