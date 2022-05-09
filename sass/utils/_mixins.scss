@@ -130,48 +130,45 @@
 @mixin loader {
     @include flex-center;
     position: fixed;
-    font-size: 10rem;
+    @include mobile{
+        font-size: 5rem;    
+    }
+    @include tablet-min{
+        font-size: 10rem;    
+        
+    }
     inset: 0;
     background-image: var.$gradient-primary;
-
-    // background-color: rgba(137, 43, 226, 1);
     z-index: 1;
     animation: opacity 5s ease-in-out;
     animation-fill-mode: forwards;
     &__text {
         
         p {
-            animation: display 5s;
+            // animation: display 5s;
             @include flex-center;
-            font-size: 10rem;
             position: fixed;
             inset: 0;
             color: var.$color-primary;
-            animation: pendulum 6s infinite;
+            animation: pendulum 6s;
             transform-origin: 50% -100px;
             $delai: 0;
             opacity: 50%;
             @for $i from 1 through 8 {
                 span:nth-child(#{$i}) {
-                    animation: chrome-variation 1s linear infinite;
+                    animation: chrome-variation 1s 6 linear;
                     animation-delay: $delai * 1s;
                     $delai: $delai + 0.2;
                 }
             }
             z-index: 2;
             span {
-                @extend %shrikhand;
+                @extend %title-font;
             }
         }
     }
-    // animation: display 5s;
 }
 
-@keyframes display {
-    to {
-        visibility: hidden;
-    }
-}
 
 // Flag "Nouveau" sur les cartes
 @mixin flag {

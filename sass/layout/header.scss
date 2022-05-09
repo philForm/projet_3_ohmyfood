@@ -5,6 +5,6 @@
     @include mix.flex-center;
     height: 60px;
     h1{
-        @extend %shrikhand;
+        @extend %title-font;
     }
 }

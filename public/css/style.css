@@ -109,11 +109,6 @@
   font-family: "Shrikhand", cursive;
 }
 
-@keyframes display {
-  to {
-    visibility: hidden;
-  }
-}
 *,
 *::after,
 *::before {
@@ -141,57 +136,64 @@ span {
   justify-content: center;
   align-items: center;
   position: fixed;
-  font-size: 10rem;
   inset: 0;
   background-image: linear-gradient(170deg, #FF79DA, #9356DC);
   z-index: 1;
   animation: opacity 5s ease-in-out;
   animation-fill-mode: forwards;
 }
+@media screen and (max-width: 768px) {
+  .loader {
+    font-size: 5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .loader {
+    font-size: 10rem;
+  }
+}
 .loader__text p {
-  animation: display 5s;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10rem;
   position: fixed;
   inset: 0;
   color: #9356DC;
-  animation: pendulum 6s infinite;
+  animation: pendulum 6s;
   transform-origin: 50% -100px;
   opacity: 50%;
   z-index: 2;
 }
 .loader__text p span:nth-child(1) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 0s;
 }
 .loader__text p span:nth-child(2) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 0.2s;
 }
 .loader__text p span:nth-child(3) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 0.4s;
 }
 .loader__text p span:nth-child(4) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 0.6s;
 }
 .loader__text p span:nth-child(5) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 0.8s;
 }
 .loader__text p span:nth-child(6) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 1s;
 }
 .loader__text p span:nth-child(7) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 1.2s;
 }
 .loader__text p span:nth-child(8) {
-  animation: chrome-variation 1s linear infinite;
+  animation: chrome-variation 1s 6 linear;
   animation-delay: 1.4s;
 }
 .section-title {
