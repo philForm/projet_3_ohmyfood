@@ -2,66 +2,83 @@
 @use "../utils/mixins" as mix;
 @use "../utils/variables" as var;
 
-.section{
+.section {
     width: 100%;
     height: auto;
-    @extend %padding-sect-foot;
-    @include mix.mobile{
-        @include mix.padding-sect-foot-mobile; 
+    @include mix.padding-sections(5%);
+    @include mix.mobile {
+        @include mix.padding-sections;
     }
-    &__title{
-        &--marg-btm{
+    &__title {
+        &--marg-btm {
             margin-bottom: 10px;
         }
     }
 }
-.operation{
+.operation {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    &__card{
+    padding-left: 15px;
+    &__card {
         position: relative;
         @include mix.flex-center(start, baseline);
         box-shadow: var.$shadow-light;
         @include mix.transition;
         gap: 10%;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         padding: 26px 5% 0 14%;
         width: 100%;
-        min-height: 62px;
+        min-height: 72px;
         background-color: var.$color-neutral-light;
         border-radius: 20px;
-        div:first-child{
+        div:first-child {
             @include mix.flex-center;
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             color: white;
             background-color: var.$color-primary;
             border-radius: 50%;
-            left: -15px;
-            bottom: 24%;
-            &::before{
+            font-weight: 500;
+            font-size: 1.4rem;
+            left: -12px;
+            bottom: 30%;
+            &::before {
                 counter-increment: my-sec-counter 1;
                 content: counter(my-sec-counter);
             }
         }
-        div:last-child{
+        i {
+            @include mix.transition;
+        }
+        div:last-child {
             margin-bottom: 5px;
         }
-        &:hover{
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background-color: lighten(var.$color-primary, 35%);
+            opacity: 0;
+            @include mix.transition(opacity);
+            z-index: -1;
+        }
+        &:hover {
             @include mix.transf-scale;
             box-shadow: var.$shadow-dark;
-            // background-color: $color-card-hover;
-            background-color: lighten(var.$color-primary, 35%);
             cursor: pointer;
-        }
-        &:hover i{
-            color: var.$color-primary;
+            &::after {
+                opacity: 1;
+            }
+            i {
+                color: var.$color-primary;
+            }
         }
     }
-    @include mix.tablet-min{
+    @include mix.tablet-min {
         &__card {
             max-width: 30%;
             @include mix.flex-center(start);

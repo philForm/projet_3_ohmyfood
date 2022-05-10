@@ -51,6 +51,21 @@
         flex-wrap: wrap;
         gap: 20px;
     }
+     // =========================================================
+    &__article{
+        width: 100%;
+        display: flex;
+        &:first-child{
+            justify-content: start;
+        }
+        &:nth-child(2){
+            justify-content: center;
+        }
+        &:last-child{
+            justify-content: flex-end;
+        }
+    }
+    // =========================================================
 
     &__card {
         position: relative;
@@ -60,10 +75,10 @@
         width: 100%;
         padding: 0 0 0 14px;
         font-size: 1.5rem;
-        min-height: 62px;
+        min-height: 68px;
         overflow: hidden;
         cursor: pointer;
-        border-radius: 15px;
+        border-radius: 20px;
         @include mix.transition;
         &:hover {
             @include mix.transf-scale;
@@ -95,7 +110,6 @@
         width: calc(100% - 50px);
         transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
 
-        // =================
         p,
         h4 {
             @include mix.ellipse;

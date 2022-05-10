@@ -13,9 +13,11 @@
     margin-bottom: $ascent;
     border-radius: 40px 40px 0 0;
     padding-bottom: 60px;
-    @extend %padding-sect-foot;
+    // @extend %padding-sect-foot;
+    @include mix.padding-sections(5%);
     @include mix.mobile {
-        @include mix.padding-sect-foot-mobile;
+        // @include mix.padding-sect-foot-mobile;
+        @include mix.padding-sections;
         padding-bottom: 60px;
     }
     .heart {

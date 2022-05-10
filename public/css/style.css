@@ -101,10 +101,6 @@
     transform: scale(1);
   }
 }
-.bloc-cards, .footer .bloc-page, .section {
-  padding: 20px 5%;
-}
-
 .title--shrink, .footer h3, .header h1, .loader__text p span {
   font-family: "Shrikhand", cursive;
 }
@@ -207,10 +203,10 @@ a {
 .btn {
   position: relative;
   box-shadow: 2px 3px 7px 3px #bcbcbc;
-  min-width: 240px;
-  height: 60px;
+  min-width: 180px;
+  height: 50px;
   padding: 0 20px;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: white;
   background-image: linear-gradient(170deg, #FF79DA, #9356DC);
@@ -260,10 +256,14 @@ body .bloc-page {
   align-items: center;
   height: 60px;
 }
+.header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .explode {
@@ -278,9 +278,20 @@ main {
   background: rgb(213, 213, 213);
   background: linear-gradient(180deg, rgb(213, 213, 213) 0%, rgb(234, 234, 234) 15%, rgb(234, 234, 234) 100%);
 }
-.explode__title span {
-  font-size: small;
-  font-weight: 400;
+.explode__title h2 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.explode__title h2 i {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.explode__title h2 span {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 .explode__content {
   display: flex;
@@ -302,10 +313,11 @@ main {
 .section {
   width: 100%;
   height: auto;
+  padding: 50px 5% 65px 5%;
 }
 @media screen and (max-width: 768px) {
   .section {
-    padding: 20px 10%;
+    padding: 50px 10% 65px 10%;
   }
 }
 .section__title--marg-btm {
@@ -317,6 +329,7 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
+  padding-left: 15px;
 }
 .operation__card {
   position: relative;
@@ -326,10 +339,10 @@ main {
   box-shadow: 2px 3px 7px 3px #bcbcbc;
   transition: all 500ms ease-in-out;
   gap: 10%;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding: 26px 5% 0 14%;
   width: 100%;
-  min-height: 62px;
+  min-height: 72px;
   background-color: #f6f6f6;
   border-radius: 20px;
 }
@@ -338,26 +351,43 @@ main {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   color: white;
   background-color: #9356DC;
   border-radius: 50%;
-  left: -15px;
-  bottom: 24%;
+  font-weight: 500;
+  font-size: 1.4rem;
+  left: -12px;
+  bottom: 30%;
 }
 .operation__card div:first-child::before {
   counter-increment: my-sec-counter 1;
   content: counter(my-sec-counter);
 }
+.operation__card i {
+  transition: all 500ms ease-in-out;
+}
 .operation__card div:last-child {
   margin-bottom: 5px;
+}
+.operation__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background-color: #f2eafb;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  z-index: -1;
 }
 .operation__card:hover {
   transform: scale(1.03);
   box-shadow: 2px 3px 7px 3px #9f9f9f;
-  background-color: #f2eafb;
   cursor: pointer;
+}
+.operation__card:hover::after {
+  opacity: 1;
 }
 .operation__card:hover i {
   color: #9356DC;
@@ -394,7 +424,7 @@ main {
 .card-resto__image {
   position: relative;
   width: inherit;
-  height: 150px;
+  height: 180px;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
 }
@@ -403,14 +433,16 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 55px;
-  font-size: 2rem;
-  color: #24611f;
+  border-radius: 1px;
+  width: 80px;
+  height: 30px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #008766;
   background-color: #99E2D0;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 12px;
+  top: 12px;
 }
 .card-resto__image--flag::before {
   transition: all 500ms ease-in-out;
@@ -492,6 +524,9 @@ main {
 .footer h3 {
   padding: 0 30px 20px 0;
 }
+.footer .bloc-page {
+  padding: 25px 5% 32.5px 5%;
+}
 .footer .bloc-page div {
   padding: 20px 0;
   display: flex;
@@ -510,7 +545,7 @@ main {
 }
 @media screen and (max-width: 768px) {
   .footer .bloc-page {
-    padding: 20px 10%;
+    padding: 25px 10% 32.5px 10%;
   }
   .footer .bloc-page div,
 .footer .bloc-page div ul {
@@ -618,10 +653,11 @@ main {
   margin-bottom: -50px;
   border-radius: 40px 40px 0 0;
   padding-bottom: 60px;
+  padding: 50px 5% 65px 5%;
 }
 @media screen and (max-width: 768px) {
   .bloc-cards {
-    padding: 20px 10%;
+    padding: 50px 10% 65px 10%;
     padding-bottom: 60px;
   }
 }
@@ -715,6 +751,19 @@ main {
   flex-wrap: wrap;
   gap: 20px;
 }
+.group__article {
+  width: 100%;
+  display: flex;
+}
+.group__article:first-child {
+  justify-content: start;
+}
+.group__article:nth-child(2) {
+  justify-content: center;
+}
+.group__article:last-child {
+  justify-content: flex-end;
+}
 .group__card {
   position: relative;
   display: flex;
@@ -725,10 +774,10 @@ main {
   width: 100%;
   padding: 0 0 0 14px;
   font-size: 1.5rem;
-  min-height: 62px;
+  min-height: 68px;
   overflow: hidden;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 20px;
   transition: all 500ms ease-in-out;
 }
 .group__card:hover {

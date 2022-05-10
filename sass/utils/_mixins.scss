@@ -175,14 +175,16 @@
     &::before {
         content: "Nouveau";
         @include flex-center;
-        width: 100px;
-        height: 55px;
-        font-size: 2rem;
-        color: #24611f;
+        border-radius: 1px;
+        width: 80px;
+        height: 30px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #008766;
         background-color: var.$color-tertiary;
         position: absolute;
-        right: 20px;
-        top: 20px;
+        right: 12px;
+        top: 12px;
     }
 }
 
@@ -218,9 +220,14 @@
     }
 }
 
-// padding en mode mobile
-@mixin padding-sect-foot-mobile {
-    padding: 20px 10%;
+// padding sections
+// @mixin padding-sect-foot-mobile {
+//     padding: 50px 10% 65px 10%;
+// }
+
+// padding sections, defaut : mobile
+@mixin padding-sections($side: 10%, $modif: 1) {
+    padding: (50/$modif * 1px) $side (65/$modif * 1px) $side;
 }
 
 // ====================================================
