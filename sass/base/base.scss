@@ -17,17 +17,16 @@
 }
 
 html {
-    // 10px div by def of 16px
+    // Pour que 10px == 1rem
     font-size: 62.5%;
     box-sizing: border-box;
-    /* Set "my-sec-counter" to 0 */
+    /* Réinitialisation de my-sec-counter */
     counter-reset: my-sec-counter;
 }
 
 body,
 span {
     font-family: "Roboto", sans-serif;
-    // background: $colour-secondary;
 }
 
 .loader{
@@ -36,6 +35,7 @@ span {
 
 .section-title {
     font-size: x-large;
+    letter-spacing: 0.4px;
 }
 
 a {

@@ -6,73 +6,63 @@
     &--color {
         background-color: var.$color-neutral-light;
     }
-    // mix.@include tablet-min{
-    //     border-radius: 20px 20px 0 0;
-    // }
 }
 
-.restaurants{
+.restaurants {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    // padding-bottom: 40px;
     gap: 20px;
 }
 
-.card-resto{
+.card-resto {
     box-shadow: var.$shadow-light;
     @include mix.transition;
     width: 100%;
     height: auto;
     background-color: white;
     border-radius: 20px;
-    &__image{
+    &__image {
         position: relative;
-        &--flag{
+        &--flag {
             @include mix.flag;
-            &::before{
-                @include mix.transition;
+            &::before {
                 transform-origin: 50% -100px;
-            }    
+            }
         }
         width: inherit;
         height: 180px;
-        border-radius: 20px 20px 0 0 ;
+        border-radius: 20px 20px 0 0;
         overflow: hidden;
-        img{
+        img {
             @include mix.image-center;
         }
     }
-    &__text{
+    &__text {
         @include mix.flex-center(space-between);
         flex-wrap: wrap;
-        padding: 20px 20px;
-        h3{
-            font-size: medium;
-        }
-        h4{
-            font-size: larger;
+        padding: 15px 20px 20px 20px;
+        div:first-child {
+            @include mix.card-text;
         }
         .heart {
             // Animation des coeurs !
             @include mix.anim-heart;
         }
-        
     }
     &:hover {
         @include mix.transf-scale;
         box-shadow: var.$shadow-dark;
         cursor: pointer;
-    
+        // Animation du flag "Nouveau"
         .card-resto__image--flag::before {
             animation: pendulum 4s;
         }
     }
-    @include mix.tablet-min{
+    @include mix.tablet-min {
         width: 48%;
-        &__image{
+        &__image {
             width: 100%;
         }
     }
-    
 }

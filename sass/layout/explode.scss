@@ -15,14 +15,10 @@
             rgba(234, 234, 234, 1) 100%
         );
         h2 {
-            display: flex;
-            align-content: center;
-            justify-content: center;
+            @include mix.flex-center;
             gap: 1rem;
-            i{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+            i {
+                @include mix.just-cont;
             }
             span {
                 font-size: 1.5rem;
@@ -44,7 +40,4 @@
             padding: 0 10%;
         }
     }
-    // @include tablet-min{
-    //     border-radius: 0 0 20px 20px;
-    // }
 }

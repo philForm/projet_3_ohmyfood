@@ -4,12 +4,14 @@
     &--space {
         @include mix.flex-center(space-around);
         flex-wrap: wrap-reverse;
+        // pseudo-élément qui sert à contrebalancer le space-around, et garder le titre au centre !
         &::after {
             content: "";
             width: 18px;
         }
     }
     i {
+        font-size: 2.5rem;
         @include mix.transition;
     }
     a:hover {

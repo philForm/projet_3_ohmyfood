@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @keyframes check-rotate {
@@ -118,7 +119,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  /* Set "my-sec-counter" to 0 */
+  /* Réinitialisation de my-sec-counter */
   counter-reset: my-sec-counter;
 }
 
@@ -141,11 +142,13 @@ span {
 @media screen and (max-width: 768px) {
   .loader {
     font-size: 5rem;
+    letter-spacing: -2px;
   }
 }
 @media screen and (min-width: 768px) {
   .loader {
     font-size: 10rem;
+    letter-spacing: -5px;
   }
 }
 .loader__text p {
@@ -194,6 +197,7 @@ span {
 }
 .section-title {
   font-size: x-large;
+  letter-spacing: 0.4px;
 }
 
 a {
@@ -258,6 +262,7 @@ body .bloc-page {
 }
 .header h1 {
   font-size: 3rem;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -280,8 +285,8 @@ main {
 }
 .explode__title h2 {
   display: flex;
-  align-content: center;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 .explode__title h2 i {
@@ -321,7 +326,7 @@ main {
   }
 }
 .section__title--marg-btm {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .operation {
@@ -445,7 +450,6 @@ main {
   top: 12px;
 }
 .card-resto__image--flag::before {
-  transition: all 500ms ease-in-out;
   transform-origin: 50% -100px;
 }
 .card-resto__image img {
@@ -458,13 +462,19 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px 20px;
+  padding: 15px 20px 20px 20px;
 }
-.card-resto__text h3 {
-  font-size: medium;
+.card-resto__text div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.card-resto__text h4 {
-  font-size: larger;
+.card-resto__text div:first-child h4 {
+  font-size: 1.6rem;
+}
+.card-resto__text div:first-child p {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 .card-resto__text .heart {
   position: relative;
@@ -489,12 +499,14 @@ main {
   background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
   transition: all 500ms ease-in-out;
 }
+.card-resto__text .heart:hover i {
+  cursor: pointer;
+}
 .card-resto__text .heart:hover i:first-child {
   opacity: 0;
 }
 .card-resto__text .heart:hover i:last-child {
   opacity: 1;
-  cursor: pointer;
 }
 .card-resto:hover {
   transform: scale(1.03);
@@ -522,10 +534,11 @@ main {
   color: white;
 }
 .footer h3 {
+  letter-spacing: 0.6px;
   padding: 0 30px 20px 0;
 }
 .footer .bloc-page {
-  padding: 25px 5% 32.5px 5%;
+  padding: 0.5px 5% 14.0086206897px 5%;
 }
 .footer .bloc-page div {
   padding: 20px 0;
@@ -545,7 +558,7 @@ main {
 }
 @media screen and (max-width: 768px) {
   .footer .bloc-page {
-    padding: 25px 10% 32.5px 10%;
+    padding: 0.5px 10% 14.0086206897px 10%;
   }
   .footer .bloc-page div,
 .footer .bloc-page div ul {
@@ -564,6 +577,7 @@ main {
   width: 18px;
 }
 .header i {
+  font-size: 2.5rem;
   transition: all 500ms ease-in-out;
 }
 .header a:hover i {
@@ -584,64 +598,64 @@ main {
   height: 100%;
 }
 
-.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(1) {
+.bloc-cards .group:nth-child(2) .group__dish .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 0s;
 }
-.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(2) {
+.bloc-cards .group:nth-child(2) .group__dish .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 0.5s;
 }
-.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(3) {
+.bloc-cards .group:nth-child(2) .group__dish .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 1s;
 }
-.bloc-cards .group:nth-child(2) .group__dish > .group__card:nth-child(4) {
+.bloc-cards .group:nth-child(2) .group__dish .group__card:nth-child(4) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 1.5s;
 }
 
-.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(1) {
+.bloc-cards .group:nth-child(3) .group__dish .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 1.5s;
 }
-.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(2) {
+.bloc-cards .group:nth-child(3) .group__dish .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 2s;
 }
-.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(3) {
+.bloc-cards .group:nth-child(3) .group__dish .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 2.5s;
 }
-.bloc-cards .group:nth-child(3) .group__dish > .group__card:nth-child(4) {
+.bloc-cards .group:nth-child(3) .group__dish .group__card:nth-child(4) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 3s;
 }
 
-.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(1) {
+.bloc-cards .group:nth-child(4) .group__dish .group__card:nth-child(1) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 3s;
 }
-.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(2) {
+.bloc-cards .group:nth-child(4) .group__dish .group__card:nth-child(2) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 3.5s;
 }
-.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(3) {
+.bloc-cards .group:nth-child(4) .group__dish .group__card:nth-child(3) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 4s;
 }
-.bloc-cards .group:nth-child(4) .group__dish > .group__card:nth-child(4) {
+.bloc-cards .group:nth-child(4) .group__dish .group__card:nth-child(4) {
   animation: cards-appear 2s ease-in-out;
   animation-fill-mode: backwards;
   animation-delay: 4.5s;
@@ -652,13 +666,11 @@ main {
   top: -50px;
   margin-bottom: -50px;
   border-radius: 40px 40px 0 0;
-  padding-bottom: 60px;
   padding: 50px 5% 65px 5%;
 }
 @media screen and (max-width: 768px) {
   .bloc-cards {
     padding: 50px 10% 65px 10%;
-    padding-bottom: 60px;
   }
 }
 .bloc-cards .heart {
@@ -684,12 +696,14 @@ main {
   background-image: linear-gradient(to bottom, #FF79DA, #9356DC);
   transition: all 500ms ease-in-out;
 }
+.bloc-cards .heart:hover i {
+  cursor: pointer;
+}
 .bloc-cards .heart:hover i:first-child {
   opacity: 0;
 }
 .bloc-cards .heart:hover i:last-child {
   opacity: 1;
-  cursor: pointer;
 }
 
 .title--shrink {
@@ -699,25 +713,48 @@ main {
 }
 
 .hidden-square {
+  display: flex;
   position: absolute;
   min-height: 100%;
-  display: flex;
-  width: 10rem;
-  right: -5rem;
+  width: 9rem;
+  right: -4rem;
   transition: all 0.5s;
 }
 .hidden-square .group__price {
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
   position: absolute;
   transition: all 0.4s;
+  min-width: 6rem;
+  min-height: 100%;
 }
-.hidden-square .check {
+.hidden-square .group__price p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-bottom: 14px;
+}
+.hidden-square .group__check {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem;
+  right: -50px;
+  font-size: 1.4rem;
+  background-color: #99E2D0;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #99E2D0;
+  transition: all 0.5s;
+}
+.hidden-square .group__check .check {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
   color: #99E2D0;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   background-color: white;
   transition: all 0.2s;
@@ -731,8 +768,7 @@ main {
 }
 .group__title {
   position: relative;
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 1.4rem;
 }
 .group__title::after {
   content: "";
@@ -743,7 +779,7 @@ main {
 }
 .group__title h3 {
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 400;
 }
 .group__dish {
   display: flex;
@@ -751,29 +787,14 @@ main {
   flex-wrap: wrap;
   gap: 20px;
 }
-.group__article {
-  width: 100%;
-  display: flex;
-}
-.group__article:first-child {
-  justify-content: start;
-}
-.group__article:nth-child(2) {
-  justify-content: center;
-}
-.group__article:last-child {
-  justify-content: flex-end;
-}
 .group__card {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   box-shadow: 2px 3px 7px 3px #bcbcbc;
   background-color: white;
   width: 100%;
-  padding: 0 0 0 14px;
-  font-size: 1.5rem;
   min-height: 68px;
   overflow: hidden;
   cursor: pointer;
@@ -784,56 +805,40 @@ main {
   transform: scale(1.03);
 }
 .group__card:hover .group__text {
-  padding-right: 36px;
+  padding-right: 54px;
 }
 .group__card:hover .hidden-square i {
   animation: check-rotate 0.5s ease-in-out;
 }
 .group__card:hover .hidden-square .group__price {
-  transform: translateX(-35px);
+  transform: translateX(-50px);
   transition: all 0.5s;
   transition-delay: 0.05s;
 }
 .group__card:hover .hidden-square .group__check {
-  transform: translateX(-50px);
+  transform: translateX(-60px);
 }
 .group__text {
   display: flex;
   flex-direction: column;
+  gap: 4px;
   justify-content: center;
-  padding: 0 0 0 14px;
+  padding-left: 15px;
   width: calc(100% - 50px);
   transition: all 0.4s;
+}
+.group__text h4 {
+  font-size: 1.6rem;
+}
+.group__text p {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 .group__text p,
 .group__text h4 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-.group__price {
-  position: relative;
-  display: flex;
-  justify-content: start;
-  align-items: flex-end;
-  font-weight: 500;
-  min-width: 5rem;
-  min-height: 100%;
-}
-.group__price p {
-  padding-bottom: 12px;
-}
-.group__check {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 5rem;
-  right: -50px;
-  background-color: #99E2D0;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #99E2D0;
-  transition: all 0.5s;
 }
 @media screen and (min-width: 768px) {
   .group__card {

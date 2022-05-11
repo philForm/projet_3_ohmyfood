@@ -2,30 +2,34 @@
 @use "./keyframes" as *;
 @use "./placeholders" as *;
 
-// Flex center
+// ===================
+// ===== FLEXBOX =====
+// ===================
+
 @mixin flex-center($just-content: center, $align: center) {
     display: flex;
     justify-content: $just-content;
     align-items: $align;
 }
 
-// Garder le ratio des images et les centrer dans leur container.
-@mixin image-center {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+@mixin just-cont($justify: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
 }
 
-// Tronquer le texte en ajoutant des points de suspension.
-@mixin ellipse {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+@mixin flex-space-wrap($space:space-between){
+    display: flex;
+    justify-content: $space;
+    flex-wrap: wrap;
 }
 
-// ======================================
-// ANIMATIONS
-// ======================================
+// ===================
+
+// ======================
+// ===== ANIMATIONS =====
+// ======================
+
 @mixin transf-scale($scale: 1.03) {
     transform: scale($scale);
 }
@@ -43,6 +47,7 @@
 
     // =========================
     // condition pour la valeur de la variable $left
+    // calcul du décalage nécessaire pour superposer les deux coeurs.
     @if ($font_size == large) {
         $left: 27px;
     }
@@ -68,7 +73,7 @@
 
         &:last-child {
             opacity: 0;
-            // webkit indispensable pour conserver la forme de l'icône
+            // webkits indispensables pour conserver la forme de l'icône
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -80,24 +85,22 @@
 
     &:hover {
         i {
+            cursor: pointer;
             &:first-child {
                 opacity: 0;
             }
 
             &:last-child {
                 opacity: 1;
-                cursor: pointer;
             }
         }
     }
 }
 
 // Animation des cartes menu qui apparaissent progressivement
-@mixin anim-cards($bloc: 1.5, $card: 0.5) {
-    // délai d'apparition des blocs menu en seconde
-    $bloc-gap: $bloc;
-    // délai d'apparition des cartes menu en seconde
-    $card-gap: $card;
+@mixin anim-cards($bloc-gap: 1.5, $card-gap: 0.5) {
+    // $bloc-gap : délai d'apparition des blocs menu en seconde
+    // $card-gap : délai d'apparition des cartes menu en seconde
     @for $i from 1 through 3 {
         .bloc-cards {
             .group:nth-child(#{$i + 1}) {
@@ -105,7 +108,7 @@
                 $time: 1;
                 @for $j from 1 through 4 {
                     .group__dish {
-                        & > .group__card:nth-child(#{$j}) {
+                        .group__card:nth-child(#{$j}) {
                             animation: cards-appear 2s ease-in-out;
                             // both remplacé par backwards car celui-là bloque les transitions des animations au hover sur les cartes.
                             // animation-fill-mode: both;
@@ -130,12 +133,13 @@
 @mixin loader {
     @include flex-center;
     position: fixed;
-    @include mobile{
-        font-size: 5rem;    
+    @include mobile {
+        font-size: 5rem;
+        letter-spacing: -2px;
     }
-    @include tablet-min{
-        font-size: 10rem;    
-        
+    @include tablet-min {
+        font-size: 10rem;
+        letter-spacing: -5px;
     }
     inset: 0;
     background-image: var.$gradient-primary;
@@ -143,9 +147,7 @@
     animation: opacity 5s ease-in-out;
     animation-fill-mode: forwards;
     &__text {
-        
         p {
-            // animation: display 5s;
             @include flex-center;
             position: fixed;
             inset: 0;
@@ -168,7 +170,6 @@
         }
     }
 }
-
 
 // Flag "Nouveau" sur les cartes
 @mixin flag {
@@ -198,10 +199,12 @@
         position: absolute;
     }
 }
-// ======================================
-// ====================================================
-// RESPONSIVE
-// ====================================================
+// ======================
+
+// ======================
+// ===== RESPONSIVE =====
+// ======================
+
 @mixin largest {
     @media screen and (min-width: map-get(var.$breakpoints, largest)) {
         @content;
@@ -220,14 +223,49 @@
     }
 }
 
-// padding sections
-// @mixin padding-sect-foot-mobile {
-//     padding: 50px 10% 65px 10%;
-// }
+// ======================
+
+// ==================
+// ===== DIVERS =====
+// ==================
 
 // padding sections, defaut : mobile
-@mixin padding-sections($side: 10%, $modif: 1) {
-    padding: (50/$modif * 1px) $side (65/$modif * 1px) $side;
+@mixin padding-sections($side: 10%, $modif-top: 1, $modif-bottom: 1) {
+    padding: calc(50 / $modif-top * 1px) $side calc(65 / $modif-bottom * 1px) $side;
 }
 
-// ====================================================
+// ==========================
+
+// Texte des cartes.
+@mixin card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    h4 {
+        font-size: 1.6rem;
+    }
+    p {
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
+
+// ==========================
+
+// Garder le ratio des images et les centrer dans leur container.
+@mixin image-center {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+// ==========================
+
+// Tronquer le texte en ajoutant des points de suspension.
+@mixin ellipse {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// ==========================

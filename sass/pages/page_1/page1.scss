@@ -8,25 +8,46 @@
 
 // Bloc visible contenant le prix et l'icône check
 .hidden-square {
+    display: flex;
     position: absolute;
     min-height: 100%;
-    display: flex;
-    width: 10rem;
-    right: -5rem;
+    width: 9rem;
+    right: -4rem;
     transition: all var.$trans-fast;
-    .group__price {
-        position: absolute;
-        transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
-    }
-    .check {
-        @include mix.flex-center;
-        margin: auto;
-        color: var.$color-tertiary;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        transition: all calc(var.$trans-fast - (var.$trans-fast * 3 / 5));
+    .group {
+        &__price {
+            @include mix.flex-center(start, flex-end);
+            position: absolute;
+            transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
+            min-width: 6rem;
+            min-height: 100%;
+            p {
+                font-size: 1.6rem;
+                font-weight: 600;
+                padding-bottom: 14px;
+            }
+        }
+        &__check {
+            position: relative;
+            @include mix.flex-center;
+            min-width: 6rem;
+            right: -50px;
+            font-size: 1.4rem;
+            background-color: var.$color-tertiary;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var.$color-tertiary;
+            transition: all var.$trans-fast;
+            .check {
+                @include mix.flex-center;
+                margin: auto;
+                color: var.$color-tertiary;
+                width: 25px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background-color: white;
+                transition: all calc(var.$trans-fast - (var.$trans-fast * 3 / 5));
+            }
+        }
     }
 }
 
@@ -37,44 +58,23 @@
     margin-bottom: 40px;
     &__title {
         position: relative;
-        font-size: 2rem;
-        font-weight: 400;
+        font-size: 1.4rem;
         @include mix.underline;
         h3 {
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: 400;
         }
     }
     &__dish {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        @include mix.flex-space-wrap;
         gap: 20px;
     }
-     // =========================================================
-    &__article{
-        width: 100%;
-        display: flex;
-        &:first-child{
-            justify-content: start;
-        }
-        &:nth-child(2){
-            justify-content: center;
-        }
-        &:last-child{
-            justify-content: flex-end;
-        }
-    }
-    // =========================================================
-
     &__card {
-        position: relative;
         @include mix.flex-center(space-between);
+        position: relative;
         box-shadow: var.$shadow-light;
         background-color: white;
         width: 100%;
-        padding: 0 0 0 14px;
-        font-size: 1.5rem;
         min-height: 68px;
         overflow: hidden;
         cursor: pointer;
@@ -83,7 +83,7 @@
         &:hover {
             @include mix.transf-scale;
             .group__text {
-                padding-right: 36px;
+                padding-right: 54px;
             }
             .hidden-square {
                 i {
@@ -91,22 +91,21 @@
                 }
                 .group {
                     &__price {
-                        transform: translateX(-35px);
+                        transform: translateX(-50px);
                         transition: all var.$trans-fast;
                         transition-delay: calc(var.$trans-fast/10);
                     }
                     &__check {
-                        transform: translateX(-50px);
+                        transform: translateX(-60px);
                     }
                 }
             }
         }
     }
     &__text {
-        display: flex;
-        flex-direction: column;
+        @include mix.card-text;
         justify-content: center;
-        padding: 0 0 0 14px;
+        padding-left: 15px;
         width: calc(100% - 50px);
         transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
 
@@ -116,27 +115,6 @@
         }
     }
 
-    &__price {
-        position: relative;
-        @include mix.flex-center(start, flex-end);
-        font-weight: 500;
-        min-width: 5rem;
-        min-height: 100%;
-
-        p {
-            padding-bottom: 12px;
-        }
-    }
-    &__check {
-        position: relative;
-        @include mix.flex-center;
-        min-width: 5rem;
-        right: -50px;
-        background-color: var.$color-tertiary;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var.$color-tertiary;
-        transition: all var.$trans-fast;
-    }
     @include mix.tablet-min {
         &__card {
             max-width: 31%;

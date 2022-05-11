@@ -4,6 +4,7 @@
 .footer {
     h3 {
         @extend %title-font;
+        letter-spacing: .6px;
         padding: 0 30px 20px 0;
     }
     font-size: 1.7rem;
@@ -13,8 +14,7 @@
     background-color: black;
     color: white;
     .bloc-page {
-        // @extend %padding-sect-foot;
-        @include mix.padding-sections(5%, 2);
+        @include mix.padding-sections(5%, 100, 4.64);
         div {
             padding: 20px 0;
             display: flex;
@@ -32,8 +32,7 @@
             }
         }
         @include mix.mobile {
-            // @include mix.padding-sect-foot-mobile;
-            @include mix.padding-sections(10%, 2);
+            @include mix.padding-sections(10%, 100, 4.64);
             div {
                 &,
                 ul {

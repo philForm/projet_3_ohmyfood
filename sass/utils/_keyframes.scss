@@ -1,6 +1,6 @@
 @use "../utils/variables" as var;
 
-// Animation du check
+// Rotation du check
 @keyframes check-rotate {
     0% {
         transform: rotate(90deg);
@@ -42,7 +42,6 @@
         visibility: hidden;
     }
 }
-
 
 // Animation de balancier
 @keyframes pendulum {
@@ -95,11 +94,9 @@
 // Changement de couleurs
 @keyframes chrome-variation {
     0% {
-        // background-image: var.$gradient-primary;
         filter: hue-rotate(0deg);
     }
     100% {
-        // background-image: var.$gradient-primary;
         filter: hue-rotate(360deg);
     }
 }
