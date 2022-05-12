@@ -38,6 +38,48 @@
     transition: $elt $duration $ease;
 }
 
+// loader
+@mixin loader {
+    @include flex-center;
+    position: fixed;
+    @include mobile {
+        font-size: 5rem;
+        letter-spacing: -2px;
+    }
+    @include tablet-min {
+        font-size: 10rem;
+        letter-spacing: -5px;
+    }
+    inset: 0;
+    background-image: var.$gradient-primary;
+    z-index: 1;
+    animation: opacity 3s ease-in-out;
+    animation-fill-mode: forwards;
+    &__text {
+        p {
+            @include flex-center;
+            position: fixed;
+            inset: 0;
+            color: var.$color-primary;
+            animation: pendulum 6s;
+            transform-origin: 50% -100px;
+            $delai: 0;
+            opacity: 50%;
+            @for $i from 1 through 8 {
+                span:nth-child(#{$i}) {
+                    animation: chrome-variation 1s 6 linear;
+                    animation-delay: $delai * 1s;
+                    $delai: $delai + 0.2;
+                }
+            }
+            z-index: 2;
+            span {
+                @extend %title-font;
+            }
+        }
+    }
+}
+
 // Animation du coeur
 @mixin anim-heart($font_size: large) {
     // initialisation de la variable locale $left
@@ -128,48 +170,6 @@
 // ======================================
 // PSEUDO-ELEMENTS
 // ======================================
-
-// loader
-@mixin loader {
-    @include flex-center;
-    position: fixed;
-    @include mobile {
-        font-size: 5rem;
-        letter-spacing: -2px;
-    }
-    @include tablet-min {
-        font-size: 10rem;
-        letter-spacing: -5px;
-    }
-    inset: 0;
-    background-image: var.$gradient-primary;
-    z-index: 1;
-    animation: opacity 5s ease-in-out;
-    animation-fill-mode: forwards;
-    &__text {
-        p {
-            @include flex-center;
-            position: fixed;
-            inset: 0;
-            color: var.$color-primary;
-            animation: pendulum 6s;
-            transform-origin: 50% -100px;
-            $delai: 0;
-            opacity: 50%;
-            @for $i from 1 through 8 {
-                span:nth-child(#{$i}) {
-                    animation: chrome-variation 1s 6 linear;
-                    animation-delay: $delai * 1s;
-                    $delai: $delai + 0.2;
-                }
-            }
-            z-index: 2;
-            span {
-                @extend %title-font;
-            }
-        }
-    }
-}
 
 // Flag "Nouveau" sur les cartes
 @mixin flag {
