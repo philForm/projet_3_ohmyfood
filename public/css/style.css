@@ -488,7 +488,7 @@ main {
   left: 27px;
   color: black;
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 .card-resto__text .heart i:last-child {
   opacity: 0;
@@ -685,7 +685,7 @@ main {
   left: 35px;
   color: black;
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 .bloc-cards .heart i:last-child {
   opacity: 0;
@@ -826,6 +826,9 @@ main {
   padding-left: 15px;
   width: calc(100% - 50px);
   transition: all 0.4s;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .group__text h4 {
   font-size: 1.6rem;
@@ -833,12 +836,6 @@ main {
 .group__text p {
   font-size: 1.4rem;
   font-weight: 400;
-}
-.group__text p,
-.group__text h4 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .group__card {

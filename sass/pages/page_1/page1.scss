@@ -108,10 +108,11 @@
         padding-left: 15px;
         width: calc(100% - 50px);
         transition: all calc(var.$trans-fast - (var.$trans-fast * 1 / 5));
+        @include mix.ellipse;
 
         p,
         h4 {
-            @include mix.ellipse;
+            // @include mix.ellipse;
         }
     }
 

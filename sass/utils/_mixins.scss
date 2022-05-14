@@ -110,7 +110,8 @@
             left: $left;
             color: black;
             opacity: 1;
-            transition: opacity 500ms ease-in-out;
+            @include transition;
+            
         }
 
         &:last-child {
@@ -146,7 +147,7 @@
     @for $i from 1 through 3 {
         .bloc-cards {
             .group:nth-child(#{$i + 1}) {
-                $delay: ($i - 1) * abs($bloc-gap);
+                $delay: calc(($i - 1) * abs($bloc-gap));
                 $time: 1;
                 @for $j from 1 through 4 {
                     .group__dish {
